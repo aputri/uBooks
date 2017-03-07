@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'ListingController@index');
-Route::get('listing/{id}', 'ListingController@getListing');
+Route::get('listing/{listing}', 'ListingController@showListing');
 
 ////Route::get('/{listing}', 'ListingController@showlisting');
 
