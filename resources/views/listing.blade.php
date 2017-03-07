@@ -1,14 +1,13 @@
-
-@extends('layout')
-
-@section('content')
-
-	<h1>{{ $listing->name}}</h1>
-	<h2>${{ $listing->price }}</h2>
-	<strong>{{ $listing->edition }} Edition</strong>
-	<p>{{ $listing->description }}</p>
-	<p>{{ $listing->condition}}</p>
-
-
-@stop
-
+{{-- Layout to be added in later to make it look good --}}
+{{-- @extends('layouts.prettyLayoutPage') --}}
+<?php
+//prints out the book info, can be changed later if needed
+foreach($result as $key=>$book){
+	echo $book->name . '<br>';
+	echo $book->edition . '<br>';
+	echo $book->description . '<br>';
+	echo $book->price . '<br>';
+	echo $book->condition . '<br>';
+	echo $book->created_at . '<br>';
+}
+?>
