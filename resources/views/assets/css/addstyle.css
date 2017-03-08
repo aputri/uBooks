@@ -1,0 +1,17 @@
+#main{
+    margin-left: 40%;
+    margin-right: 40%;
+    width:auto;
+}
+input{
+    display: block;
+}
+#thumbnail{
+    border: 1px solid lightgrey;
+}
+textarea{
+    width: 12.5em;
+    height: 8em;
+    max-width: 12.5em;
+    max-height: 8em;
+}
