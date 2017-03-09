@@ -1,8 +1,22 @@
+body{
+    font-family: "Helvetica";
+}
+h1{
+    background-color: #00b3ee;
+    text-align: left;
+    padding: 0.5em;
+    border-radius: 3px;
+}
 #main{
     margin-left: 40%;
     margin-right: 40%;
-    width:auto;
+    width: 30em;
+    padding: 2em;
+    background-color: lightslategrey;
+    border: 3px solid orange;
+    border-radius: 5px;
 }
+
 input{
     display: block;
 }
@@ -12,6 +26,21 @@ input{
 textarea{
     width: 12.5em;
     height: 8em;
-    max-width: 12.5em;
-    max-height: 8em;
+    resize: none;
 }
+#popup{
+    display: none;
+    position: absolute;
+    top: 1em;
+}
+button{
+    margin-left: 45%;
+    height:5em;
+    width: 10em;
+    border-radius: 0.5em;
+    border-color: #31708f;
+    background-color: #31708f;
+    color: white;
+    font-weight: bolder;
+}
+

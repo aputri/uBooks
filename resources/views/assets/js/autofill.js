@@ -1,5 +1,8 @@
+function div_show(){
+    document.getElementById("popup").style.display = "block";
+}
 window.onload = function () {
-
+    document.getElementsByTagName("button")[0].addEventListener("click", div_show);
     document.getElementById('auto').onclick = function () {
         var books = require('google-books-search');
 
