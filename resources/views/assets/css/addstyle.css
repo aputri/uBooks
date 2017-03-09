@@ -1,13 +1,15 @@
-body{
+body {
     font-family: "Helvetica";
 }
-h1{
+
+h1 {
     background-color: #00b3ee;
     text-align: left;
     padding: 0.5em;
     border-radius: 3px;
 }
-#main{
+
+#main {
     margin-left: 40%;
     margin-right: 40%;
     width: 30em;
@@ -17,25 +19,29 @@ h1{
     border-radius: 5px;
 }
 
-input{
+input {
     display: block;
 }
-#thumbnail{
+
+#thumbnail {
     border: 1px solid lightgrey;
 }
-textarea{
+
+textarea {
     width: 12.5em;
     height: 8em;
     resize: none;
 }
-#popup{
+
+#popup {
     display: none;
     position: absolute;
     top: 1em;
 }
-button{
+
+button {
     margin-left: 45%;
-    height:5em;
+    height: 5em;
     width: 10em;
     border-radius: 0.5em;
     border-color: #31708f;
