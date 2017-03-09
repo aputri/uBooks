@@ -15,6 +15,16 @@ class ListingController extends Controller
     	return view('index')->with('booklistings', $booklistings);
     }
 
+    public function showCategoryOnly(){
+        $cat_id = $_GET['categories'];
+        if($cat_id == 0){
+            $booklistings = DB::select('select * from listings');
+        }else {
+            $booklistings = DB::select('select * from listings where catId =?', [$cat_id]);
+        }
+        return view('index')->with('booklistings', $booklistings);
+    }
+
     public function showlisting(Listing $listing){
 
     	return view('listing')->with('listing', $listing);

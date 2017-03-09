@@ -13,6 +13,8 @@
 
 Route::get('/', 'ListingController@index');
 Route::get('listing/{listing}', 'ListingController@showListing');
+//Route::get('category/{catId}', 'ListingController@showCategoryOnly');
+Route::get('category', 'ListingController@showCategoryOnly');
 
 ////Route::get('/{listing}', 'ListingController@showlisting');
 
