@@ -1,13 +1,11 @@
-{{-- @extends('layouts.prettyLayoutPage') --}}
-<?php
+@extends('layout')
+@section('content')
 
-//print_r($result);
+	<h1>{{ $listing->name}}</h1>
+	<h2>${{ $listing->price }}</h2>
+	<strong>{{ $listing->edition }} Edition</strong>
+	<p>{{ $listing->description }}</p>
+	<p>{{ $listing->condition}}</p>
 
-foreach($result as $key=>$book){
-    //echo $book->id . '<br>';
-    echo $book->title . '<br>';
-    echo $book->desc . '<br>';
-    echo $book->price . '<br>';
-    echo $book->created_at . '<br>';
-}
-?>
+@stop
+
