@@ -16,7 +16,12 @@ class ListingController extends Controller
     }
 
     public function showCategoryOnly(){
-        $cat_id = $_GET['categories'];
+        $cat_id = 0;
+        try {
+            $cat_id = $_GET['categories'];
+        }catch(\Exception $e){
+
+        }
         if($cat_id == 0){
             $booklistings = DB::select('select * from listings');
         }else {
