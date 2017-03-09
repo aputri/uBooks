@@ -4,7 +4,6 @@
 @section('content')
 
     <b>uBooks: books for u</b><br>
-
     <form action="{{action('ListingController@showCategoryOnly')}}">
         <select name="categories">
             <option value="0">All Subjects</option>
@@ -20,9 +19,9 @@
     </select>
         <button type="submit">Submit</button>
     </form>
-
-
-
+    <br>
+    <a href = "{{URL::to('create')}}"><button>Create New Listing</button></a>
+    <br>
 
     <table>
         <tr>

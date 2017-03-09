@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<head>
+@extends('layout')
+@section('content')
+<script src="{{URL::to('js/bundle.js')}}" type="text/javascript"></script>
+<!-- temp -->
+<link rel="stylesheet" type="text/css" href="{{URL::to('css/addstyle.css')}}">
 
-    <script src="assets/js/bundle.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/addstyle.css">
-
-</head>
-<html>
-<body>
 <button type="button">Add a Listing</button>
 <div id="popup">
     <div id="main">
@@ -35,8 +32,4 @@
 
     </div>
 </div>
-
-</body>
-
-</html>
-
+@stop

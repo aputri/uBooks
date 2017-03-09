@@ -11,8 +11,11 @@
 |
 */
 
+//Listing Controls
+
 Route::get('/', 'ListingController@index');
 Route::get('listing/{listing}', 'ListingController@showListing');
+Route::get('create', 'ListingController@creation');
 //Route::get('category/{catId}', 'ListingController@showCategoryOnly');
 Route::get('/category', 'ListingController@showCategoryOnly');
 

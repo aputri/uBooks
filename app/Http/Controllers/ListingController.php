@@ -15,6 +15,10 @@ class ListingController extends Controller
     	return view('index')->with('booklistings', $booklistings);
     }
 
+    public function creation() {
+        return view('addlisting');
+    }
+
     public function showCategoryOnly(){
         $cat_id = 0;
         try {
