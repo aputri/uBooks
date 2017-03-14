@@ -21,3 +21,7 @@ Route::get('/category', 'ListingController@showCategoryOnly');
 
 ////Route::get('/{listing}', 'ListingController@showlisting');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
