@@ -19,9 +19,10 @@ Route::get('create', 'ListingController@creation');
 //Route::get('category/{catId}', 'ListingController@showCategoryOnly');
 Route::get('/category', 'ListingController@showCategoryOnly');
 
-////Route::get('/{listing}', 'ListingController@showlisting');
-
-
+//login
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
+
+//facebook
+Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/callback', 'SocialAuthController@callback');

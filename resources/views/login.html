@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -16,6 +18,15 @@
     <link rel="stylesheet" href="assets/css/MUSA_navbar.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+                'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
 </head>
 
 <body>
@@ -102,10 +113,11 @@
   <!-- /.container-fluid -->
 </nav>
     <div class = container>
-    <h3>Login or Register to uBooks</h3>
-    <br/>
-    <div style="margin-left:130px;">
-    <form class="col-md-10">
+    <h2>Login or Register to uBooks</h2>
+    <hr/>
+    <div style="margin: auto;width:50%">
+    <form class="col-md-16" role="form" method="POST" action="">
+        {{ csrf_field() }}>
     <div class="row text-center">
         <div class="col-md-12 col-sm-12">
              <a class="btn btn-block btn-social btn-lg btn-facebook">
@@ -121,7 +133,8 @@
         </div>
         <br/>
     <div class="form-group">
-        <input type="text" class="form-control input-lg" placeholder="Email">
+        <input id="email" type="email" class="form-control input-lg" name="email" value="{{ old('email') }}" required autofocus>
+        
     </div>
     <div class="form-group">
         <input type="password" class="form-control input-lg" placeholder="Password">
@@ -130,6 +143,7 @@
         <button class="btn btn-primary btn-lg btn-block">Sign In</button>
     </div>
     </form>
+
     </div>
     </div>
     </div>
