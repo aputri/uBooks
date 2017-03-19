@@ -13090,3 +13090,6 @@ Stack trace:
 #59 C:\xampp\htdocs\uBooks\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #60 C:\xampp\htdocs\uBooks\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #61 {main}  
+[2017-03-19 21:49:44] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'parse error' in /Users/alvina/Desktop/uBooks/routes/web.php:29
+Stack trace:
+#0 {main}  
