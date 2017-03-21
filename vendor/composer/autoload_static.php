@@ -308,6 +308,7 @@ class ComposerStaticInitae9910b5aaf4e04613a65257a1f71d7d
     );
 
     public static $classMap = array (
+        'AddAdminColumnToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_18_193702_add_admin_column_to_users_table.php',
         'CreateBooksTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_06_042914_create_books_table.php',
         'CreateCategorysTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_06_043115_create_categorys_table.php',
         'CreateImagesTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_06_043727_create_images_table.php',
