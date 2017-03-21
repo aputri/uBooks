@@ -58,7 +58,7 @@
                                     Forgot Your Password?
                                 </a>
                                 <!--facebook login -->
-                                <a href="redirect">FB Login</a>
+                                <a href="{{ url('/redirect') }}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
                             </div>
                         </div>
                     </form>

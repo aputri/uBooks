@@ -66,6 +66,7 @@
                                 </button>
                             </div>
                         </div>
+                        <a href="<?php echo e(url('/redirect')); ?>" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
                     </form>
                 </div>
             </div>

@@ -14,7 +14,7 @@ return array(
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateReviewsTable' => $baseDir . '/database/migrations/2017_03_06_044417_create_reviews_table.php',
     'CreateSalesTable' => $baseDir . '/database/migrations/2017_03_06_044024_create_sales_table.php',
-    'CreateSocialAccountsTable' => $baseDir . '/database/migrations/2017_03_16_041146_create_social_accounts_table.php',
+    'CreateSocialAccountsTable' => $baseDir . '/database/migrations/2017_03_19_034016_create_social_accounts_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

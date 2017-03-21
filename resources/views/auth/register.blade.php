@@ -67,6 +67,7 @@
                                 </button>
                             </div>
                         </div>
+                        <a href="{{ url('/redirect') }}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
                     </form>
                 </div>
             </div>

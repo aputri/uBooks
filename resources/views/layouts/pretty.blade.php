@@ -4,18 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <title>uBooks - @yield('title')</title>
+    <link href="{{ URL::to('css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/Alex_NavDefault.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-social.css">
-    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
-    <link rel="stylesheet" href="assets/css/MUSA_carousel-product-cart-slider.css">
-    <link rel="stylesheet" href="assets/css/MUSA_navbar.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="{{ URL::to('fonts/font-awesome.min.css.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('css/Alex_NavDefault.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('css/Footer-Basic.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('css/MUSA_carousel-product-cart-slider.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('css/MUSA_navbar.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('css/Navigation-with-Search.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('css/styles.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +23,7 @@
     <nav class="navbar navbar-default navigation-clean-search">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand navbar-link" href="#"> <img src="assets/img/uBooks.png"></a>
+                <a class="navbar-brand navbar-link" href="#"> <img src="{{ URL::to('img/uBooks.png') }}"></a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
@@ -35,14 +34,15 @@
                 </ul>
                 <form class="navbar-form navbar-left" target="_self">
                     <div class="form-group">
-                        <label class="control-label" for="search-field"></label>
+                        <label class="control-label" for="search-field"><i class="glyphicon glyphicon-search"></i></label>
+                        <input class="form-control search-field" type="search" name="search" id="search-field">
                     </div>
                 </form><a class="btn btn-default navbar-btn navbar-right action-button" role="button" href="#">Login </a></div>
         </div>
     </nav>
     <div class="carousel slide" data-ride="carousel" id="carousel-1">
         <div class="carousel-inner" role="listbox">
-            <div class="item active"><img src="assets/img/slider1.png" alt="Slide Image" /></div>
+            <div class="item active"><img src="{{ URL::to('img/slider1.png') }}" alt="Slide Image" /></div>
         </div>
 
     </div>
@@ -101,36 +101,8 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <div class = container>
-    <h2>Login or Register</h2>
-    <hr/>
-    <div style="margin: auto; width:50%">
-    <form class="col-md-16">
-    <div class="row text-center">
-        <div class="col-md-12 col-sm-12">
-             <a class="btn btn-block btn-social btn-lg btn-facebook">
-              <span class="fa fa-facebook"></span> Sign up with Facebook
-             </a>
-        </div>
-    </div>
-    <br/>
-    <div style="width: 100%; height: 15px; border-bottom: 1px solid lightgrey; text-align: center">
-                <span style="font-size: 20px; color: grey; background-color: white; padding-left:10px; padding-right:10px">
-                    or
-                </span>
-                </div>
-                <br/>
-                <div class="form-group">
-                    <input type="text" class="form-control input-lg" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control input-lg" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary btn-lg btn-block">Sign In</button>
-                </div>
-            </form>
-        </div>
+    <div class = "container">
+        @yield('content')
     </div>
 </div>
 <div class="footer-basic">
@@ -138,6 +110,10 @@
         <p class="copyright">uBooks © 2017</p>
     </footer>
 </div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
