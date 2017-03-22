@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
+    <title>Contact Seller</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    <div></div>
     <div>
         <nav class="navbar navbar-default navigation-clean-search">
             <div class="container">
@@ -41,12 +42,12 @@
             </div>
         </nav>
         <div class="carousel slide" data-ride="carousel" id="carousel-1">
-            <div class="carousel-inner" role="listbox">
-            <div class="item active"><img src="assets/img/slider1.png" alt="Slide Image" /></div>
-            </div>
-        </div>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active"><img src="assets/img/slider1.png" alt="Slide Image" /></div>
+    </div>
 
-    <nav class="navbar navbar-default" role="navigation">
+</div>
+        <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -103,63 +104,30 @@
 </nav>
     </div>
     <div class="container">
-    <div class="row">
-        <div class="col-md-12 alert-col relative">
-            <div class="alert alert-info absolue center" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with success</span></div>
-        </div>
-    </div>
     <form>
-        <div class="row profile-row">
-            <div class="col-md-4 relative">
-                <div class="avatar">
-                    <div class="avatar-bg center"></div>
-                </div>
-                <input type="file" class="form-control" name="avatar-file" />
-            </div>
-            <div class="col-md-8">
-                <h2>Edit Profile </h2>
-                <hr />
-                <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                        <div class="form-group">
-                            <label class="control-label">First Name </label>
-                            <input class="form-control" type="text" name="firstname" />
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <div class="form-group">
-                            <label class="control-label">Last Name </label>
-                            <input class="form-control" type="text" name="lastname" />
-                        </div>
-                    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Contact Seller</h2>
+            <hr/>
+                <div class="form-group">
+                    <label class="control-label">Name </label>
+                    <input class="form-control" type="text"/>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Email </label>
-                    <input class="form-control" type="email" autocomplete="off" required name="email" />
+                    <label class="control-label">E-mail </label>
+                    <input class="form-control" type="email"/>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                        <div class="form-group">
-                            <label class="control-label">Password </label>
-                            <input class="form-control" type="password" name="password" autocomplete="off" required />
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <div class="form-group">
-                            <label class="control-label">Confirm Password</label>
-                            <input class="form-control" type="password" name="confirmpass" autocomplete="off" required />
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label class="control-label">Phone number</label>
+                    <input class="form-control" type="tel"/>
                 </div>
-                <hr />
-                <div class="row">
-                    <div class="col-md-12 content-right">
-                        <button class="btn btn-primary btn-block" type="submit">Save </button>
-                    </div>
+                <div class="form-group">
+                    <label class="control-label">Message </label>
+                    <textarea class="form-control" rows="5"></textarea>
                 </div>
-            </div>
+                <button class="btn btn-default" type="button">Send </button>
         </div>
+    </div>
     </form>
 </div>
     <div class="footer-basic">
@@ -171,8 +139,11 @@
     <div></div>
     <div></div>
     <div></div>
-    <script src="assets/bootstrap/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="assets/js/Profile-Edit.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
 </body>
 
 </html>
