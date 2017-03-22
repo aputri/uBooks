@@ -41,7 +41,7 @@
             	</a>
             </td>
             <td>
-            	<a href="/administration/edit/{{ $user->id }}" class="rowlink">
+            	<a href="/administration/ban/{{ $user->id }}" class="rowlink">
             		Yes
             	</a>
         </tr>

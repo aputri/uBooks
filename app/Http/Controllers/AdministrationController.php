@@ -21,4 +21,10 @@ class AdministrationController extends Controller
     	return view('administration')->with('users', $users);
     }
 
+    public function banUser(User $user){
+    	DB::update('UPDATE users SET banned = TRUE WHERE id =?', [$user->id]);
+    	$users = DB::select('select * from users');
+    	return view('administration')->with('users', $users);
+    }
+
 }
