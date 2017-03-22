@@ -17,14 +17,12 @@ class AdministrationController extends Controller
     //Deletes user from users DB. Does not perma ban them.
     public function deleteUser(User $user){
     	DB::delete('DELETE FROM users WHERE id =?', [$user->id]);
-    	$users = DB::select('select * from users');
-    	return view('administration')->with('users', $users);
+    	return redirect('administration');
     }
 
     public function banUser(User $user){
     	DB::update('UPDATE users SET banned = TRUE WHERE id =?', [$user->id]);
-    	$users = DB::select('select * from users');
-    	return view('administration')->with('users', $users);
+    	return redirect('administration');
     }
 
 }
