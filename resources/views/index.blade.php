@@ -39,7 +39,7 @@
             {{ $listing->edition }}
             </td>
             <td>
-            {{ $listing->condition }}
+            {{ $listing->quality }}
             </td>
             <td>
             {{ $listing->price }}

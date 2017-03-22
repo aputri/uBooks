@@ -28,7 +28,7 @@ window.onload = function () {
     document.getElementById('auto').onclick = function () {
         var books = require('google-books-search');
 
-        var isbn = prompt("Enter an ISBN: ");
+        var isbn = document.getElementById('isbn').value;
 
         var book = undefined;
         var options = {
