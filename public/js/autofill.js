@@ -54,12 +54,15 @@ window.onload = function () {
 }
 function fillForms(book) {
     var volume = document.getElementById('volume');
+    var imageLink = document.getElementById('imageLink');
     var fields = document.getElementsByClassName("fillField");
     fields[0].value = book[0]["title"];
     fields[1].value = book[0]["authors"][0];
     fields[2].value = book[0]["description"];
     fields[3].value = book[0]["publishedDate"];
     volume.value = book[0]['id'];
+    imageLink.value = book[0]['thumbnail'];
+
     document.getElementById("thumbnail").setAttribute("src", book[0]["thumbnail"]);
 }
 function div_show() {

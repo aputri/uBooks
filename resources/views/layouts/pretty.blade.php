@@ -32,8 +32,7 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
                     <li role="presentation"><a href="{{ URL::to('/') }}">All Listings</a></li>
-                    <li role="presentation"><a href="#">Link 2</a></li>
-                    <li role="presentation"><a href="#">Link 3</a></li>
+
                 </ul>
                 <form class="navbar-form navbar-left" target="_self">
                     <div class="form-group">
@@ -108,7 +107,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="home"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="active"><a href="{{URL::to('/')}}"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="#"><i class="fa fa-flask"></i> Link</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-database"></i>
@@ -163,8 +162,10 @@
 <div></div>
 <div></div>
 <div></div>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="{{URL::to('js/jquery.min.js')}}"></script>
+<script src="{{URL::to('js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 
 </html>

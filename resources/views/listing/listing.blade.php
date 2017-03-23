@@ -8,6 +8,7 @@
 			<div class = "panel">
 				<div class = "panel-body">
 					<div class="caption">
+						<img src="{{$listing->imageLink}}">
 						<h3 class="pull-right" style="color:#5bc6c5">${{ $listing->price }}</h3>
 						<h3><a href="#" style="color:#5bc6c5">{{ $listing->name}}</a></h3>
 						<p>

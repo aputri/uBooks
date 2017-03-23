@@ -44,6 +44,10 @@
                         <?php if(Auth::user() && Auth::user()->admin): ?>
                             <li> <a href = "<?php echo e(URL::to('/administration')); ?>">Administration</a></li>
                         <?php endif; ?>
+
+                        <?php if(Auth::user()): ?>
+                            <li><a href = "<?php echo e(URL::to('/messages')); ?>">My Messages</a></li>
+                        <?php endif; ?>
                             <li><a href = "<?php echo e(URL::to('/')); ?>">All Listings</a></li>
                         <!-- Authentication Links -->
                         <?php if(Auth::guest()): ?>

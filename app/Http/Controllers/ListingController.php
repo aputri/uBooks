@@ -80,6 +80,7 @@ class ListingController extends Controller
         $listing->edition = $request->edition;
         $listing->condition = $request->condition;
         $listing->description = $request->description;
+        $listing->imageLink = $request->imageLink;
 
         $volumeId = $request->volumeId;
         $book = json_decode(file_get_contents('https://www.googleapis.com/books/v1/volumes/'.$volumeId.'?key=AIzaSyA9d3aNH0Nmd7weoAQQ7hOBwNgoYvjh_qQ'), true);

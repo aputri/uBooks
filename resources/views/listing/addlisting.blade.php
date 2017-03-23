@@ -34,6 +34,7 @@
                 <br>
                 <label>Image:</label><br>
                 <img id="thumbnail" src="">
+                {{Form::hidden('imageLink',null, ['id'=>'imageLink', 'class'=>'fillField'])}}
                 <br><br>
                 <input type="submit" value="Post Now">
 

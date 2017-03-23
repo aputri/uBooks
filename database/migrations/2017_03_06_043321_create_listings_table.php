@@ -21,7 +21,7 @@ class CreateListingsTable extends Migration
 
             $table->integer('catId')->unsigned();
             $table->foreign('catId')->references('id')->on('categorys');
-            $table->string('imageLink');
+            $table->string('imageLink')->nullable();
             $table->bigInteger('isbn');
             $table->string('name');
             $table->decimal('price',8,2);
