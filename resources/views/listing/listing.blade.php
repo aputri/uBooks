@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.pretty')
 @section('content')
 
 	<h1>{{ $listing->name}}</h1>

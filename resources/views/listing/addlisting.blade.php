@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.pretty')
 @section('content')
     <script src="{{URL::to('js/bundle.js')}}" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/addstyle.css')}}">

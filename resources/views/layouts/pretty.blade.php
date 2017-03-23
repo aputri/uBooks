@@ -8,7 +8,7 @@
     <link href="{{ URL::to('css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
-    <link href="{{ URL::to('fonts/font-awesome.min.css.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ URL::to('css/Alex_NavDefault.css') }}" rel="stylesheet">
     <link href="{{ URL::to('css/Footer-Basic.css') }}" rel="stylesheet">
     <link href="{{ URL::to('css/MUSA_carousel-product-cart-slider.css') }}" rel="stylesheet">
@@ -23,26 +23,68 @@
     <nav class="navbar navbar-default navigation-clean-search">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand navbar-link" href="#"> <img src="{{ URL::to('img/uBooks.png') }}"></a>
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a class="navbar-brand navbar-link" href="{{ URL::to('/') }}"> <img
+                            src="{{ URL::to('img/uBooks.png') }}"></a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span
+                            class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
-                    <li class="active" role="presentation"><a href="#">Link 1</a></li>
+                    <li role="presentation"><a href="{{ URL::to('/') }}">All Listings</a></li>
                     <li role="presentation"><a href="#">Link 2</a></li>
                     <li role="presentation"><a href="#">Link 3</a></li>
                 </ul>
                 <form class="navbar-form navbar-left" target="_self">
                     <div class="form-group">
-                        <label class="control-label" for="search-field"><i class="glyphicon glyphicon-search"></i></label>
+                        <label class="control-label" for="search-field"><i
+                                    class="glyphicon glyphicon-search"></i></label>
                         <input class="form-control search-field" type="search" name="search" id="search-field">
                     </div>
-                </form><a class="btn btn-default navbar-btn navbar-right action-button" role="button" href="#">Login </a></div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    @if(Auth::user() && Auth::user()->admin)
+                        <li><a href="{{ URL::to('/administration') }}">Administration</a></li>
+                    @endif
+                <!-- Authentication Links -->
+                    @if (Auth::guest())
+                        <li><a class="btn btn-default navbar-btn navbar-right action-button" role="button"
+                               href="{{ route('login') }}">Login</a></li>
+                        <li><a class="btn btn-default navbar-btn navbar-right action-button" style="margin-left:2em;"role="button"
+                               href="{{ route('register') }}">Register</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle btn btn-default navbar-btn navbar-right action-button" role="button" data-toggle="dropdown" role="button"
+                               aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href='{{ URL::to('/profile') }}'>My Profile</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+                </ul>
+            </div>
         </div>
     </nav>
     <div class="carousel slide" data-ride="carousel" id="carousel-1">
         <div class="carousel-inner" role="listbox">
-            <div class="item active"><img src="{{ URL::to('img/slider1.png') }}" alt="Slide Image" /></div>
+            <div class="item active"><img src="{{ URL::to('img/slider1.png') }}" alt="Slide Image"/></div>
         </div>
 
     </div>
@@ -50,7 +92,8 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -60,10 +103,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="active"><a href="home"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="#"><i class="fa fa-flask"></i> Link</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-database"></i> Dropdown <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-database"></i>
+                            Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#"><i class="fa fa-home"></i> Action</a></li>
                             <li><a href="#"><i class="fa fa-flask"></i> Another action</a></li>
@@ -101,7 +145,7 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <div class = "container">
+    <div class="container">
         @yield('content')
     </div>
 </div>
@@ -114,8 +158,8 @@
 <div></div>
 <div></div>
 <div></div>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

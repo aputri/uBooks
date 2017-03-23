@@ -41,6 +41,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <?php if(Auth::user() && Auth::user()->admin): ?>
+                            <li> <a href = "<?php echo e(URL::to('/administration')); ?>">Administration</a></li>
+                        <?php endif; ?>
                             <li><a href = "<?php echo e(URL::to('/')); ?>">All Listings</a></li>
                         <!-- Authentication Links -->
                         <?php if(Auth::guest()): ?>
