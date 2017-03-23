@@ -4,7 +4,7 @@ window.onload = function () {
     var modal = document.getElementById('myModal');
 
 // Get the button that opens the modal
-    var btn = document.getElementsByTagName("button")[0];
+    var btn = document.getElementById("add");
 
 // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];

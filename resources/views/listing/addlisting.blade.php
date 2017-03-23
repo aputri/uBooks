@@ -1,11 +1,8 @@
-@extends('layout')
+@extends('layouts.app')
 @section('content')
     <script src="{{URL::to('js/bundle.js')}}" type="text/javascript"></script>
-    <!-- temp -->
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/addstyle.css')}}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-
-    <button>Add a Listing</button>
+    <button id="add">Add a Listing</button>
     <div id="main">
         <div id="myModal" class="modal">
             <div class="modal-content">

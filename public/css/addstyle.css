@@ -1,12 +1,3 @@
-body {
-    font-family: "Helvetica";
-}
-
-h1 {
-    text-align: left;
-    border-radius: 3px;
-}
-
 
 
 input {
@@ -20,21 +11,14 @@ input {
 }
 
 textarea {
-    width: 12.5em;
+    width: 11.25em;
     height: 8em;
     resize: none;
 }
 
 
 button {
-    margin-left: 45%;
-    height: 3em;
-    width: 10em;
-    border-radius: 0.5em;
-    border-color: #31708f;
-    background-color: #31708f;
-    color: white;
-    font-weight: bolder;
+    margin-left: 40%;
 }
 
 .modal {
@@ -54,12 +38,12 @@ button {
 /* Modal Content/Box */
 .modal-content {
     background-color:   white;
-    margin: 1% auto; /* 15% from the top and centered */
+    margin: 10% auto; /* 15% from the top and centered */
     border: 1px solid #888;
     border-radius:  3px;
     padding:    0 2em 2em 2em;
-    width:  20em; /* Could be more or less, depending on screen size */
-    height: 45em;
+    width:  30em; /* Could be more or less, depending on screen size */
+    height: 65em;
 }
 .close {
     margin-top: 1em;
