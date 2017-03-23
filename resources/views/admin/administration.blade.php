@@ -14,11 +14,14 @@
 			</th>
 			<th>
 				Admin
+            </th>
+            <th>
+                Status
 			<th>
-				Ban Forever
+				Delete
 			</th>
 			<th>
-				Edit
+				Ban
 			</th>
 		</tr>
 		 @foreach ($users as $user)
@@ -33,17 +36,25 @@
             {{ $user->email }}
             </td>
             <td>
-            {{ $user->id }}
+            @if($user->admin)
+                Yes
+            @endif
             </td>
             <td>
-            	<a href="/administration/{{ $user->id }}" class="rowlink">
+            @if($user->banned)
+                Banned
+            @endif
+            </td>
+            <td>
+            	<a href="/administration/{{ $user->id }}">
             		Yes
             	</a>
             </td>
             <td>
-            	<a href="/administration/edit/{{ $user->id }}" class="rowlink">
-            		Yes
-            	</a>
+                <a href="/administration/ban/{{ $user->id }}">
+                    Yes
+                </a>
+            </td>
         </tr>
     	@endforeach
     </table>

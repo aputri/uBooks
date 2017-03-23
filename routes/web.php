@@ -29,6 +29,11 @@ Route::get('/redirect', 'SocialAuthController@redirect');
 Route::get('/callback', 'SocialAuthController@callback');
 
 //admin
-
 Route::get('/administration', 'AdministrationController@showAdmin');
 Route::get('/administration/{user}', 'AdministrationController@deleteUser');
+Route::get('/administration/ban/{user}', 'AdministrationController@banUser');
+
+//profile
+Route::get('/profile', 'UserController@getInfo');
+Route::post('/profile/editInfo', "UserController@changeInfo");
+Route::post('/profile/changePass', 'UserController@changePassword');

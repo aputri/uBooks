@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 //use Illuminate\Routing\Controller;
 use App\Http\Controllers\Controller as Controller;
-use Validator;
 
 
+
+
+//use Illuminate\Routing\Controller;
+use \Auth;
 use App\Listing;
 use DB;
 
@@ -15,15 +19,21 @@ class ListingController extends Controller
 {
     public function index()
     {
+        //checks if user is logged in, then checks if they're banned
+        if(Auth::check()){
+            if(Auth::user()->banned){
+            return view('banned');
+            }
+        }
         $booklistings = DB::select('select * from listings');
-
-        return view('index')->with('booklistings', $booklistings);
+        return view('listing.index')->with('booklistings', $booklistings);
     }
 
     public function creation()
     {
-        return view('addlisting');
+        return view('listing.addlisting');
     }
+
 
 
 
@@ -40,13 +50,13 @@ class ListingController extends Controller
         } else {
             $booklistings = DB::select('select * from listings where catId =?', [$cat_id]);
         }
-        return view('index')->with('booklistings', $booklistings);
+        return view('listing.index')->with('booklistings', $booklistings);
     }
 
     public function showlisting(Listing $listing)
     {
 
-        return view('listing')->with('listing', $listing);
+        return view('listing.listing')->with('listing', $listing);
 
     }
     public function store(Request $request)
