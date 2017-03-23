@@ -19,7 +19,7 @@ Route::get('create', 'ListingController@creation');
 Route::get('done', 'ListingController@addListing');
 //Route::get('category/{catId}', 'ListingController@showCategoryOnly');
 Route::get('/category', 'ListingController@showCategoryOnly');
-
+Route::get('/profile/{id}', 'UserController@getInfo');
 //login
 Auth::routes();
 Route::get('/home', 'HomeController@index');
