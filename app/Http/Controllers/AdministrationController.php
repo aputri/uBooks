@@ -7,11 +7,16 @@ use Illuminate\Http\Request;
 use App\User;
 use DB;
 
+use \Auth;
+
 class AdministrationController extends Controller
 {
     public function showAdmin(){
-    	$users = DB::select('select * from users');
-    	return view('administration')->with('users', $users);
+    	if(Auth::user()->admin){
+    		$users = DB::select('select * from users');
+    		return view('administration')->with('users', $users);
+    	}
+    	return redirect('/');
     }
 
     //Deletes user from users DB. Does not perma ban them.
