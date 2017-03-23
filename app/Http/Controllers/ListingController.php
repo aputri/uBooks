@@ -81,6 +81,16 @@ class ListingController extends Controller
         $listing->condition = $request->condition;
         $listing->description = $request->description;
 
+        $volumeId = $request->volumeId;
+        $book = json_decode(file_get_contents('https://www.googleapis.com/books/v1/volumes/'.$volumeId.'?key=AIzaSyA9d3aNH0Nmd7weoAQQ7hOBwNgoYvjh_qQ'), true);
+
+        $priceInfo = $book['saleInfo']['saleability'];
+        if($priceInfo == "FOR_SALE"){
+            $priceInfo = $book['saleInfo']['listPrice']['amount'];
+        } else {
+            $priceInfo = -1;
+        }
+        $listing->retailPrice = $priceInfo;
         //$listing->pubDate = $request->pubDate;//needs to be added to db
         $listing->save();
 
@@ -89,7 +99,7 @@ class ListingController extends Controller
         //$booklistings = DB::select('select * from listings');
 
         //return view('index')->with('booklistings', $booklistings);
-        return $this->index();
+        return $this->showlisting($listing);
 
     }
 }

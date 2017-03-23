@@ -32,6 +32,7 @@
                     <th>Edition</th>
                     <th>Condition</th>
                     <th>Price</th>
+                    <th>Retail Price</th>
                 </tr>
                 @foreach ($booklistings as $listing)
                     <tr>
@@ -46,6 +47,13 @@
                         </td>
                         <td>
                             {{ $listing->price }}
+                        </td>
+                        <td>
+                            @if($listing->retailPrice==-1)
+                                N/A
+                            @else
+                            {{ $listing->retailPrice }}
+                            @endif
                         </td>
                     </tr>
                 @endforeach

@@ -24449,7 +24449,6 @@ window.onload = function () {
 
 // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
-
 // When the user clicks on the button, open the modal
     btn.onclick = function () {
         modal.style.display = "block";
@@ -24495,11 +24494,13 @@ window.onload = function () {
     }
 }
 function fillForms(book) {
+    var volume = document.getElementById('volume');
     var fields = document.getElementsByClassName("fillField");
     fields[0].value = book[0]["title"];
     fields[1].value = book[0]["authors"][0];
     fields[2].value = book[0]["description"];
     fields[3].value = book[0]["publishedDate"];
+    volume.value = book[0]['id'];
     document.getElementById("thumbnail").setAttribute("src", book[0]["thumbnail"]);
 }
 function div_show() {

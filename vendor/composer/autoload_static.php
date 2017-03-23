@@ -362,6 +362,8 @@ class ComposerStaticInitae9910b5aaf4e04613a65257a1f71d7d
 
     public static $classMap = array (
         'AddAdminColumnToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_18_193702_add_admin_column_to_users_table.php',
+        'AddBannedToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_22_210021_add_banned_to_users_table.php',
+        'App\\Book' => __DIR__ . '/../..' . '/app/Book.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdministrationController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdministrationController.php',
@@ -373,6 +375,7 @@ class ComposerStaticInitae9910b5aaf4e04613a65257a1f71d7d
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ListingController' => __DIR__ . '/../..' . '/app/Http/Controllers/ListingController.php',
         'App\\Http\\Controllers\\SocialAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialAuthController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',

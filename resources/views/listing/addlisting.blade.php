@@ -30,6 +30,7 @@
                 {{ Form::text('price', null,['placeholder'=>'$'])}}
                 {{ Form::label('condition', 'Condition of the book:')}}
                 {{ Form::text('condition', null,['placeholder'=>'Ex: Good'])}}
+                {{ Form::hidden('volumeId', null, ['id'=>'volume']) }}
                 <br>
                 <label>Image:</label><br>
                 <img id="thumbnail" src="">

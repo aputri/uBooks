@@ -28,6 +28,7 @@ class CreateListingsTable extends Migration
             $table->string('condition');
             $table->text('description');
             $table->text('edition');
+            $table->decimal('retailPrice', 8,2);
             $table->timestamps();
         });
     }
