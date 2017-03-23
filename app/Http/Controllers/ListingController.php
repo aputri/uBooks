@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+
+//use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller as Controller;
+
+
+
+
+//use Illuminate\Routing\Controller;
 use \Auth;
 use App\Listing;
 use DB;
@@ -27,21 +34,8 @@ class ListingController extends Controller
         return view('listing.addlisting');
     }
 
-    public function addListing()
-    {
-        $title = $_GET['title'];
-        $isbn = $_GET['isbn'];
-        $price = $_GET['price'];
-        $pubDate = $_GET['pubDate'];
 
-        DB::insert('insert into listings(userId, name, isbn, price) values(?, ?, ?, ?, ?)',
-            [1, $title,$isbn, ]);
-        //todo selct user ids from users table using session vars
-        $booklistings = DB::select('select * from listings');
 
-        return view('listing.index')->with('booklistings', $booklistings);
-
-    }
 
     public function showCategoryOnly()
     {
@@ -63,6 +57,39 @@ class ListingController extends Controller
     {
 
         return view('listing.listing')->with('listing', $listing);
+
+    }
+    public function store(Request $request)
+    {
+        $listing = new Listing;
+
+        $this->validate($request, [
+            'title' => 'required',
+            'isbn' => 'required',
+            'price' => 'required',
+            'edition' => 'required',
+            'condition' => 'required',
+            'description' => 'required',
+        ]);
+        $listing->name = $request->title;
+        $listing->userId = 1;
+        $catId = 1;
+        $listing->catId = $catId;
+        $listing->isbn = $request->isbn;
+        $listing->price = $request->price;
+        $listing->edition = $request->edition;
+        $listing->condition = $request->condition;
+        $listing->description = $request->description;
+
+        //$listing->pubDate = $request->pubDate;//needs to be added to db
+        $listing->save();
+
+
+        //TODO: selct user ids from users table using session vars
+        //$booklistings = DB::select('select * from listings');
+
+        //return view('index')->with('booklistings', $booklistings);
+        return $this->index();
 
     }
 }

@@ -15,6 +15,8 @@ input {
 
 #thumbnail {
     border: 1px solid lightgrey;
+    height: 150px;
+    min-width: 100px;
 }
 
 textarea {
@@ -26,7 +28,7 @@ textarea {
 
 button {
     margin-left: 45%;
-    height: 5em;
+    height: 3em;
     width: 10em;
     border-radius: 0.5em;
     border-color: #31708f;
@@ -52,12 +54,12 @@ button {
 /* Modal Content/Box */
 .modal-content {
     background-color:   white;
-    margin: 5% auto; /* 15% from the top and centered */
+    margin: 1% auto; /* 15% from the top and centered */
     border: 1px solid #888;
     border-radius:  3px;
     padding:    0 2em 2em 2em;
     width:  20em; /* Could be more or less, depending on screen size */
-    height: 40em;
+    height: 45em;
 }
 .close {
     margin-top: 1em;
