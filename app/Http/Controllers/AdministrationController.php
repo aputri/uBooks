@@ -27,6 +27,7 @@ class AdministrationController extends Controller
 
     //Deletes user from users DB. Does not perma ban them.
     public function deleteUser(User $user){
+        DB::delete('DELETE FROM listings WHERE userId =?', [$user->id]);
     	DB::delete('DELETE FROM users WHERE id =?', [$user->id]);
     	return redirect('/administration');
     }
