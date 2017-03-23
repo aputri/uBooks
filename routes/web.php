@@ -43,3 +43,6 @@ Route::post('/profile/changePass', 'UserController@changePassword');
 //messaging
 
 Route::post('/listing/contact/{id}', 'MessageController@fillForm');
+Route::get('/messages', 'MessageController@index');
+Route::get('/messages/{id}', 'MessageController@message');
+Route::post('/messages/{id}/add', 'MessageController@addMessage');

@@ -16,5 +16,5 @@
 @endif
 <a href = "http://localhost/ubooks/public">
 <button>
-    Go to uBooks to accept offer!
+    Go to uBooks to communicate more with this buyer!
 </button></a>
