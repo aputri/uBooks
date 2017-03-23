@@ -41,6 +41,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        @if(Auth::user() && Auth::user()->admin)
+                            <li> <a href = "{{ URL::to('/administration') }}">Administration</a></li>
+                        @endif
                             <li><a href = "{{ URL::to('/') }}">All Listings</a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
