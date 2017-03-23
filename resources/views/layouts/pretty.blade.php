@@ -44,17 +44,22 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     @if(Auth::user() && Auth::user()->admin)
-                        <li><a href="{{ URL::to('/administration') }}">Administration</a></li>
+                        <li><a style="margin-left:2em;" class="btn btn-default navbar-btn navbar-right action-button" role="button" href="{{ URL::to('/administration') }}">Administration</a></li>
+                    @endif
+                    @if(Auth::user())
+                        <li><a style="margin-left:2em;" class="btn btn-default navbar-btn navbar-right action-button" role="button" href="{{ URL::to('/messages') }}">My Messages</a></li>
                     @endif
                 <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a class="btn btn-default navbar-btn navbar-right action-button" role="button"
                                href="{{ route('login') }}">Login</a></li>
-                        <li><a class="btn btn-default navbar-btn navbar-right action-button" style="margin-left:2em;"role="button"
+                        <li><a class="btn btn-default navbar-btn navbar-right action-button" style="margin-left:2em;"
+                               role="button"
                                href="{{ route('register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle btn btn-default navbar-btn navbar-right action-button" role="button" data-toggle="dropdown" role="button"
+                            <a style="margin-left:2em;" href="#" class="dropdown-toggle btn btn-default navbar-btn navbar-right action-button"
+                               role="button" data-toggle="dropdown" role="button"
                                aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
