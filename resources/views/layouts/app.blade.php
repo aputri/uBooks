@@ -44,6 +44,10 @@
                         @if(Auth::user() && Auth::user()->admin)
                             <li> <a href = "{{ URL::to('/administration') }}">Administration</a></li>
                         @endif
+
+                        @if(Auth::user())
+                            <li><a href = "{{ URL::to('/messages') }}">My Messages</a></li>
+                        @endif
                             <li><a href = "{{ URL::to('/') }}">All Listings</a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())

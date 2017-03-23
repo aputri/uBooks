@@ -72,7 +72,7 @@ class ListingController extends Controller
             'description' => 'required',
         ]);
         $listing->name = $request->title;
-        $listing->userId = 1;
+        $listing->userId = Auth::User()->id;
         $catId = 1;
         $listing->catId = $catId;
         $listing->isbn = $request->isbn;

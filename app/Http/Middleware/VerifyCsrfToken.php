@@ -14,6 +14,8 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         '/profile/editInfo',
         '/profile/changePass',
-        '/administration/changePass/*'
+        '/administration/changePass/*',
+        '/listing/*',
+        '/messages/*'
     ];
 }
