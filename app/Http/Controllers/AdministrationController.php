@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use DB;
-
+use Hash;
 use \Auth;
 
 class AdministrationController extends Controller
@@ -28,13 +28,20 @@ class AdministrationController extends Controller
     //Deletes user from users DB. Does not perma ban them.
     public function deleteUser(User $user){
     	DB::delete('DELETE FROM users WHERE id =?', [$user->id]);
-    	return redirect('admin.administration');
+    	return redirect('/administration');
     }
 
     //Flags user as banned in the DB.
     public function banUser(User $user){
     	DB::update('UPDATE users SET banned = TRUE WHERE id =?', [$user->id]);
-    	return redirect('admin.administration');
+    	return redirect('/administration');
     }
+	public function changePass($id){
+		$pass = $_POST["password"];
+		$user = User::find($id);
+		$user->password = Hash::make($pass);
+		$user->save();
+		return redirect('/administration');
+	}
 
 }
