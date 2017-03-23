@@ -11,12 +11,18 @@ use \Auth;
 
 class AdministrationController extends Controller
 {
+	//returns list of registered accounts from the DB.
     public function showAdmin(){
-    	if(Auth::user()->admin){
+    	//checks if user is logged in, then checks if they are an admin
+    	if (Auth::check()){
+    		if(Auth::user()->admin){
     		$users = DB::select('select * from users');
     		return view('administration')->with('users', $users);
+    		}
+    	} else {
+    		return redirect('/');
     	}
-    	return redirect('/');
+    	
     }
 
     //Deletes user from users DB. Does not perma ban them.
@@ -25,6 +31,7 @@ class AdministrationController extends Controller
     	return redirect('administration');
     }
 
+    //Flags user as banned in the DB.
     public function banUser(User $user){
     	DB::update('UPDATE users SET banned = TRUE WHERE id =?', [$user->id]);
     	return redirect('administration');

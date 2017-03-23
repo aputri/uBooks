@@ -12,8 +12,11 @@ class ListingController extends Controller
 {
     public function index()
     {
-        if(Auth::user()->banned){
+        //checks if user is logged in, then checks if they're banned
+        if(Auth::check()){
+            if(Auth::user()->banned){
             return view('banned');
+            }
         }
         $booklistings = DB::select('select * from listings');
         return view('index')->with('booklistings', $booklistings);
