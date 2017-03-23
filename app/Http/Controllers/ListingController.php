@@ -19,12 +19,12 @@ class ListingController extends Controller
             }
         }
         $booklistings = DB::select('select * from listings');
-        return view('index')->with('booklistings', $booklistings);
+        return view('listing.index')->with('booklistings', $booklistings);
     }
 
     public function creation()
     {
-        return view('addlisting');
+        return view('listing.addlisting');
     }
 
     public function addListing()
@@ -39,7 +39,7 @@ class ListingController extends Controller
         //todo selct user ids from users table using session vars
         $booklistings = DB::select('select * from listings');
 
-        return view('index')->with('booklistings', $booklistings);
+        return view('listing.index')->with('booklistings', $booklistings);
 
     }
 
@@ -56,13 +56,13 @@ class ListingController extends Controller
         } else {
             $booklistings = DB::select('select * from listings where catId =?', [$cat_id]);
         }
-        return view('index')->with('booklistings', $booklistings);
+        return view('listing.index')->with('booklistings', $booklistings);
     }
 
     public function showlisting(Listing $listing)
     {
 
-        return view('listing')->with('listing', $listing);
+        return view('listing.listing')->with('listing', $listing);
 
     }
 }

@@ -17,7 +17,7 @@ class AdministrationController extends Controller
     	if (Auth::check()){
     		if(Auth::user()->admin){
     		$users = DB::select('select * from users');
-    		return view('administration')->with('users', $users);
+    		return view('admin.administration')->with('users', $users);
     		}
     	} else {
     		return redirect('/');
@@ -28,13 +28,13 @@ class AdministrationController extends Controller
     //Deletes user from users DB. Does not perma ban them.
     public function deleteUser(User $user){
     	DB::delete('DELETE FROM users WHERE id =?', [$user->id]);
-    	return redirect('administration');
+    	return redirect('admin.administration');
     }
 
     //Flags user as banned in the DB.
     public function banUser(User $user){
     	DB::update('UPDATE users SET banned = TRUE WHERE id =?', [$user->id]);
-    	return redirect('administration');
+    	return redirect('admin.administration');
     }
 
 }
