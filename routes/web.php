@@ -19,7 +19,7 @@ Route::get('create', 'ListingController@creation');
 Route::get('done', 'ListingController@addListing');
 //Route::get('category/{catId}', 'ListingController@showCategoryOnly');
 Route::get('/category', 'ListingController@showCategoryOnly');
-Route::get('/profile/{id}', 'UserController@getInfo');
+
 //login
 Auth::routes();
 Route::get('/home', 'HomeController@index');
@@ -32,3 +32,8 @@ Route::get('/callback', 'SocialAuthController@callback');
 Route::get('/administration', 'AdministrationController@showAdmin');
 Route::get('/administration/{user}', 'AdministrationController@deleteUser');
 Route::get('/administration/ban/{user}', 'AdministrationController@banUser');
+
+//profile
+Route::get('/profile', 'UserController@getInfo');
+Route::post('/profile/editInfo', "UserController@changeInfo");
+Route::post('/profile/changePass', 'UserController@changePassword');
