@@ -39,3 +39,7 @@ Route::post('/administration/changePass/{user}', 'AdministrationController@chang
 Route::get('/profile', 'UserController@getInfo');
 Route::post('/profile/editInfo', "UserController@changeInfo");
 Route::post('/profile/changePass', 'UserController@changePassword');
+
+//messaging
+
+Route::post('/listing/contact/{id}', 'MessageController@fillForm');

@@ -3,6 +3,9 @@
 <div class = "container">
     <div class = "row">
         <div class = "col-md-12">
+            @if(session('success'))
+                <div class = "alert alert-success">Order has been placed</div>
+            @endif
             <b>uBooks: books for u</b><br>
             <form action="{{action('ListingController@showCategoryOnly')}}">
                 <select name="categories">
