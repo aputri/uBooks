@@ -9,17 +9,7 @@
 						<h3 class="pull-right" style="color:#5bc6c5">${{ $listing->price }}</h3>
 						<h3><a href="#" style="color:#5bc6c5">{{ $listing->name}}</a></h3>
 						<p>
-						<strong>
-							@if($listing->edition == 1)
-								{{$listing->edition}}st
-							@elseif($listing->edition == 2)
-								{{$listing->edition}}nd
-							@elseif($listing->edition == 3)
-								{{$listing->edition}}rd
-							@else
-								{{$listing->edition}}th
-							@endif
-							Edition</strong>
+						<strong>Edition: {{$listing->edition}}</strong>
 						<h4>Condition: {{ $listing->condition}}</h4>
 						</p>
 						<p>{{ $listing->description }}</p>
