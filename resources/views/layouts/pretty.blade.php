@@ -34,13 +34,13 @@
                     <li role="presentation"><a href="{{ URL::to('/') }}">All Listings</a></li>
 
                 </ul>
-                <form class="navbar-form navbar-left" target="_self">
-                    <div class="form-group">
-                        <label class="control-label" for="search-field"><i
-                                    class="glyphicon glyphicon-search"></i></label>
-                        <input class="form-control search-field" type="search" name="search" id="search-field">
-                    </div>
-                </form>
+                {{--<form class="navbar-form navbar-left" target="_self">--}}
+                    {{--<div class="form-group">--}}
+                        {{--<label class="control-label" for="search-field"><i--}}
+                                    {{--class="glyphicon glyphicon-search"></i></label>--}}
+                        {{--<input class="form-control search-field" type="search" name="search" id="search-field">--}}
+                    {{--</div>--}}
+                {{--</form>--}}
                 <ul class="nav navbar-nav navbar-right">
                     @if(Auth::user() && Auth::user()->admin)
                         <li><a style="margin-left:2em;" class="btn btn-default navbar-btn navbar-right action-button" role="button" href="{{ URL::to('/administration') }}">Administration</a></li>
@@ -123,14 +123,14 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                            <input type="text" class="form-control" placeholder="Search for something">
-                        </div>
-                    </div>
-                </form>
+                {{--<form class="navbar-form navbar-left" role="search">--}}
+                    {{--<div class="form-group">--}}
+                        {{--<div class="input-group">--}}
+                            {{--<span class="input-group-addon"><i class="fa fa-search"></i></span>--}}
+                            {{--<input type="text" class="form-control" placeholder="Search for something">--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</form>--}}
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><i class="fa fa-link"></i> Link</a></li>
                     <li class="dropdown">
