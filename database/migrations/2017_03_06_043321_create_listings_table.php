@@ -21,14 +21,14 @@ class CreateListingsTable extends Migration
 
             $table->integer('catId')->unsigned();
             $table->foreign('catId')->references('id')->on('categorys');
-
+            $table->string('imageLink')->nullable();
             $table->bigInteger('isbn');
             $table->string('name');
-            $table->integer('edition');
             $table->decimal('price',8,2);
             $table->string('condition');
             $table->text('description');
-
+            $table->text('edition');
+            $table->decimal('retailPrice', 8,2);
             $table->timestamps();
         });
     }
