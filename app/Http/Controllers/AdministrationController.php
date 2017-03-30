@@ -51,9 +51,9 @@ class AdministrationController extends Controller
         DB::delete('DELETE FROM listings WHERE created_at < DATEADD(DAY, -30, GETDATE())'. [$listing->catID]);
     }
 
-    //Changes expiry date listing to today's date when renewed (extends to another 30 days)..
+    //Changes expiry date listing to today's date when renewed (extends to another 30 days).
     public function changeExpiryDate(Listing $listing){
-        DB::update('UPDATE listings SET created_at = GETDATE()'. [$listing->catID]);s
+        DB::update('UPDATE listings SET created_at = GETDATE()'. [$listing->catID]);
     }
 
 }
