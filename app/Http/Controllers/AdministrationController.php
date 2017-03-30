@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Listing;
 use DB;
 use Hash;
 use \Auth;
@@ -44,5 +45,16 @@ class AdministrationController extends Controller
 		$user->save();
 		return redirect('/administration');
 	}
+
+    //Deletes listings after 30 days.
+    public function expiryListing(Listing $listing){
+        DB::delete('DELETE FROM listings WHERE created_at < DATEADD(DAY, -30, GETDATE())'. [$listing->catID]);
+    }
+
+    //Changes expiry date listing to today's date when renewed (extends to another 30 days).
+    //Will change where clause to only happen when users choose to renew listing (changes expiry date after 29 days for now).
+    public function changeExpiryDate(Listing $listing){
+        DB::update('UPDATE listings SET created_at = GETDATE() WHERE $listing < DATEADD(DAY, -29, GETDATE()'. [$listing->catID]);
+    }
 
 }
