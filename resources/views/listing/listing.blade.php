@@ -21,6 +21,9 @@
 							<div style="width:150px">
 								<button data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-md btn-block"><span class="glyphicon glyphicon-envelope"></span> Contact Seller</button>
 							</div>
+							<div style="width:150px">
+								<button data-toggle="modal" data-target="#myReportModal" class="btn btn-primary btn-md btn-block"><span class="glyphicon glyphicon-envelope"></span> Report Listing</button>
+							</div>
 						</div>
 						@endif
 					</div>
@@ -69,6 +72,30 @@
 		</div>
 	</div>
 </div>
+</form>
+
+<form method = "post" action = "{{ URL::to('/listing/report/' . $listing->id ) }}">
+	<div class="modal fade" id="myReportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Report Listing</h4>
+				</div>
+				<div class="modal-body">
+					<div class = "alert alert-info">Please tell us why this is being reported</div>
+					<div class="form-group">
+						<label class="control-label">Reason</label>
+						<input name = "reason" class="form-control" type="text"/>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Report</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </form>
 
 @stop

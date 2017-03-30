@@ -369,6 +369,7 @@ class ComposerStaticInitae9910b5aaf4e04613a65257a1f71d7d
     public static $classMap = array (
         'AddAdminColumnToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_18_193702_add_admin_column_to_users_table.php',
         'AddBannedToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_22_210021_add_banned_to_users_table.php',
+        'AddReportCountToListings' => __DIR__ . '/../..' . '/database/migrations/2017_03_29_034814_add_report_count_to_listings.php',
         'App\\Book' => __DIR__ . '/../..' . '/app/Book.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',

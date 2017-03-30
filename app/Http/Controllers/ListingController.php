@@ -103,4 +103,14 @@ class ListingController extends Controller
         return $this->showlisting($listing);
 
     }
+
+    public function fileReport($id, Request $request)
+    {
+        $reason = $request->input('reason');
+        DB::insert("INSERT INTO reportedListings(listingId, reason) VALUES (?, ?)", [$id, $reason]);
+        DB::table('reportedListings')->increment('reported');
+
+        return redirect()->to('/')->with('success', 'success');
+
+    }
 }
