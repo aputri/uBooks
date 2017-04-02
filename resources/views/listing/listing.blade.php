@@ -17,14 +17,10 @@
 						</p>
 						<p>{{ $listing->description }}</p>
 						@if(Auth::User())
-						<div align="right">
-							<div style="width:150px">
-								<button data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-md btn-block"><span class="glyphicon glyphicon-envelope"></span> Contact Seller</button>
+							<div class="btn-toolbar">
+								<button style="width:150px" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-md btn-block pull-right"><span class="glyphicon glyphicon-envelope"></span> Contact Seller</button>
+								<button style="width:150px" data-toggle="modal" data-target="#myReportModal" class="btn btn-danger btn-md btn-block"><span class="glyphicon glyphicon-flag"></span> Report Listing</button>
 							</div>
-							<div style="width:150px">
-								<button data-toggle="modal" data-target="#myReportModal" class="btn btn-primary btn-md btn-block"><span class="glyphicon glyphicon-envelope"></span> Report Listing</button>
-							</div>
-						</div>
 						@endif
 					</div>
 				</div>

@@ -110,7 +110,7 @@ class ListingController extends Controller
         DB::insert("INSERT INTO reportedListings(listingId, reason) VALUES (?, ?)", [$id, $reason]);
         DB::table('reportedListings')->increment('reported');
 
-        return redirect()->to('/')->with('success', 'success');
+        return redirect()->to('/')->with('reported', 'reported');
 
     }
 }

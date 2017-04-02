@@ -6,6 +6,9 @@
             @if(session('success'))
                 <div class = "alert alert-success">Order has been placed</div>
             @endif
+            @if(session('reported'))
+                    <div class = "alert alert-success">Listing has been reported</div>
+                @endif
             <b>uBooks: books for u</b><br>
             <form action="{{action('ListingController@showCategoryOnly')}}">
                 <select name="categories">
