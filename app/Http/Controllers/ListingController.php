@@ -93,7 +93,20 @@ class ListingController extends Controller
         }
         $listing->retailPrice = $priceInfo;
         //$listing->pubDate = $request->pubDate;//needs to be added to db
+
+
         $listing->save();
+        $imageName = $listing->id . '.' . $request->file('image')->getClientOriginalExtension();
+
+        $listing->imagePath = $imageName;
+        $request->file('image')->move(
+            base_path() . '/storage/app/public/', $imageName
+        );
+        $listing->save();
+
+
+
+
 
 
         //TODO: selct user ids from users table using session vars
