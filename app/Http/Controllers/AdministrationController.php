@@ -18,7 +18,8 @@ class AdministrationController extends Controller
     	if (Auth::check()){
     		if(Auth::user()->admin){
     		$users = DB::select('select * from users');
-    		return view('admin.administration')->with('users', $users);
+    		$reports = DB::select('select * from reportedListings');
+    		return view('admin.administration')->with('users', $users)->with('reports', $reports);
     		}
     	} else {
     		return redirect('/');
@@ -31,6 +32,13 @@ class AdministrationController extends Controller
         DB::delete('DELETE FROM listings WHERE userId =?', [$user->id]);
     	DB::delete('DELETE FROM users WHERE id =?', [$user->id]);
     	return redirect('/administration');
+    }
+
+    //Deletes post from reportedListing and listings DB.
+    public function deletePost($id){
+        DB::delete('DELETE FROM reportedListings WHERE listingId =?', [$id]);
+        DB::delete('DELETE FROM listings WHERE id =?', [$id]);
+        return redirect('/administration');
     }
 
     //Flags user as banned in the DB.
@@ -51,9 +59,9 @@ class AdministrationController extends Controller
         DB::delete('DELETE FROM listings WHERE created_at < DATEADD(DAY, -30, GETDATE())'. [$listing->catID]);
     }
 
-    //Changes expiry date listing to today's date when renewed (extends to another 30 days)..
+    //Changes expiry date listing to today's date when renewed (extends to another 30 days).
     public function changeExpiryDate(Listing $listing){
-        DB::update('UPDATE listings SET created_at = GETDATE()'. [$listing->catID]);s
+        DB::update('UPDATE listings SET created_at = GETDATE()'. [$listing->catID]);
     }
 
 }

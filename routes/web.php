@@ -31,6 +31,7 @@ Route::get('/callback', 'SocialAuthController@callback');
 //admin
 Route::get('/administration', 'AdministrationController@showAdmin');
 Route::get('/administration/{user}', 'AdministrationController@deleteUser');
+Route::get('/administration/deletePost/{id}', 'AdministrationController@deletePost');
 Route::get('/administration/ban/{user}', 'AdministrationController@banUser');
 Route::post('/administration/changePass/{user}', 'AdministrationController@changePass');
 

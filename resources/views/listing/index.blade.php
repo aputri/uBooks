@@ -1,27 +1,31 @@
 @extends('layouts.pretty')
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                @if(session('success'))
-                    <div class="alert alert-success">Order has been placed</div>
+
+<div class = "container">
+    <div class = "row">
+        <div class = "col-md-12">
+            @if(session('success'))
+                <div class = "alert alert-success">Order has been placed</div>
+            @endif
+            @if(session('reported'))
+                    <div class = "alert alert-success">Listing has been reported</div>
                 @endif
-                <b>uBooks: books for u</b><br>
-                <form action="{{action('ListingController@showCategoryOnly')}}">
-                    <select name="categories">
-                        <option value="0">All Subjects</option>
-                        <option value="1">Biology</option>
-                        <option value="2">Business</option>
-                        <option value="3">Computer Science</option>
-                        <option value="4">Education</option>
-                        <option value="5">English</option>
-                        <option value="6">Engineering</option>
-                        <option value="7">Human Kinetics</option>
-                        <option value="8">Mathematics</option>
-                        <option value="9">Physics</option>
-                    </select>
-                    <button type="submit">Submit</button>
-                </form>
+            <b>uBooks: books for u</b><br>
+            <form action="{{action('ListingController@showCategoryOnly')}}">
+                <select name="categories">
+                    <option value="0">All Subjects</option>
+                    <option value="1">Biology</option>
+                    <option value="2">Business</option>
+                    <option value="3">Computer Science</option>
+                    <option value="4">Education</option>
+                    <option value="5">English</option>
+                    <option value="6">Engineering</option>
+                    <option value="7">Human Kinetics</option>
+                    <option value="8">Mathematics</option>
+                    <option value="9">Physics</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
 
                 @if(Auth::User())
                     <br>

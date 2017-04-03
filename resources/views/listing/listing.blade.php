@@ -39,6 +39,7 @@
         </div>
     </div>
 
+
     <!-- Modal -->
     <form method="post" action="{{ URL::to('/listing/contact/' . $listing->id ) }}">
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
