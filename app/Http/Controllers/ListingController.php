@@ -70,6 +70,7 @@ class ListingController extends Controller
             'edition' => 'required',
             'condition' => 'required',
             'description' => 'required',
+            'image' => 'required'
         ]);
         $listing->name = $request->title;
         $listing->userId = Auth::User()->id;
