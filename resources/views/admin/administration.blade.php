@@ -2,6 +2,9 @@
 
 @section('content')
     <div class = "container">
+        @if(session('deleteUser'))
+            <div class = "alert alert-success">User has successfully been deleted</div>
+        @endif
         <div class = "row">
             <div class = "col-md-12 panel">
                 <table class = "table-striped col-md-12">
@@ -54,6 +57,9 @@
     </div>
 
     <div class = "container">
+        @if(session('deleteListing'))
+            <div class = "alert alert-success">Post has successfully been deleted</div>
+        @endif
         <div class = "row">
             <div class = "col-md-12 panel">
                 <table class = "table-striped col-md-12">
@@ -65,7 +71,7 @@
                         <th> View Post</th>
                     </tr>
                     @foreach ($reports as $report)
-                        <tr align="center">
+                        <tr>
                             <td> {{ $report->listingId }}  </td>
                             <td> {{ $report->reported }}  </td>
                             <td> {{ $report->reason }}  </td>

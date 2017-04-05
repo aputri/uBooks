@@ -31,14 +31,15 @@ class AdministrationController extends Controller
     public function deleteUser(User $user){
         DB::delete('DELETE FROM listings WHERE userId =?', [$user->id]);
     	DB::delete('DELETE FROM users WHERE id =?', [$user->id]);
-    	return redirect('/administration');
+        DB::delete('DELETE FROM social_accounts WHERE user_id =?', [$user->id]);
+        return redirect()->to('/administration')->with('deleteUser', 'deleteUser');
     }
 
     //Deletes post from reportedListing and listings DB.
     public function deletePost($id){
         DB::delete('DELETE FROM reportedListings WHERE listingId =?', [$id]);
         DB::delete('DELETE FROM listings WHERE id =?', [$id]);
-        return redirect('/administration');
+        return redirect()->to('/administration')->with('deleteListing', 'deleteListing');
     }
 
     //Flags user as banned in the DB.
