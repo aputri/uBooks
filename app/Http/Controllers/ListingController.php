@@ -26,14 +26,12 @@ class ListingController extends Controller
 
         $subjects = DB::table('Categorys')->pluck('subject');
         $booklistings = DB::select('select * from listings');
-        return view('listing.index')->with([
+        return view('listing.index',[
             'booklistings' => $booklistings,
             'subjects' => $subjects]);
 
-        $booklistings = DB::select('select * from listings where del = 0');
-        return view('listing.index')->with('booklistings', $booklistings);
     }
-    
+
 
     public function showCategoryOnly()
     {

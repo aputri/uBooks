@@ -21,8 +21,11 @@ class SearchController extends Controller
     {
         $search = $_GET['searchReq'];
         $booklistings =  DB::select("select * from listings where isbn like '%$search%' or lower(name) like lower('%$search%') or lower(description) like lower('%$search%') or lower(edition) like lower('%$search%') ");
-        
-        return view('listing.index')->with('booklistings', $booklistings);
+        $subjects = DB::table('Categorys')->pluck('subject');
+        return view('listing.index',[
+            'booklistings'=>$booklistings,
+            'subjects' => $subjects
+            ]);
 
     }
 }
