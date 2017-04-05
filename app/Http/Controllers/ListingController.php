@@ -17,23 +17,37 @@ use DB;
 
 class ListingController extends Controller
 {
-    public function index()
-    {
-        //checks if user is logged in, then checks if they're banned
-        if(Auth::check()){
-            if(Auth::user()->banned){
-            return view('banned');
-            }
+ //   public function index()
+  //  {
+   //     //checks if user is logged in, then checks if they're banned
+    //    if(Auth::check()){
+     //       if(Auth::user()->banned){
+      //      return view('banned');
+       //     }
+        //}
+        //$booklistings = DB::select('select * from listings');
+        //return view('listing.index')->with('booklistings', $booklistings);
+    //}
+
+
+    //This function is for sorting the index page
+    
+    public function index(Request $request){
+        $sortby = $request->get('sortby');
+        $order = $request->get('order');
+
+        if ($sortby && $order) {
+            $booklistings = Listing::orderBy($sortby, $order)->get();
+        } else {
+            $booklistings = Listing::all();
         }
-        $booklistings = DB::select('select * from listings');
-        return view('listing.index')->with('booklistings', $booklistings);
+        return view('listing.index', compact('booklistings', 'sortby', 'order'));
     }
 
     public function creation()
     {
         return view('listing.addlisting');
     }
-
 
 
 
@@ -127,4 +141,6 @@ class ListingController extends Controller
         return redirect()->to('/')->with('reported', 'reported');
 
     }
+
+
 }
