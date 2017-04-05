@@ -65,7 +65,7 @@
                         <th> View Post</th>
                     </tr>
                     @foreach ($reports as $report)
-                        <tr align="center">
+                        <tr>
                             <td> {{ $report->listingId }}  </td>
                             <td> {{ $report->reported }}  </td>
                             <td> {{ $report->reason }}  </td>

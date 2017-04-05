@@ -7,7 +7,7 @@
                 <div class="panel">
                     <div class="panel-body">
                         <div class="caption">
-                            <img src="{{$listing->imageLink}}">
+                            <img class="img-responsive" src="{{$listing->imageLink}}">
                             <h3 class="pull-right" style="color:#5bc6c5">${{ $listing->price }}</h3>
                             <h3><a href="#" style="color:#5bc6c5">{{ $listing->name}}</a></h3>
                             <p>
@@ -15,7 +15,7 @@
                             <h4>Condition: {{ $listing->condition}}</h4>
                             </p>
                             <p>{{ $listing->description }}</p>
-                            <img src="{{"../../storage/app/public/" . $listing->imagePath}}">
+                            <img class="img-responsive" src="{{"../../storage/app/public/" . $listing->imagePath}}">
                             @if(Auth::User())
                                 <div class="btn-toolbar">
                                     <button style="width:150px" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-md btn-block pull-right"><span class="glyphicon glyphicon-envelope"></span> Contact Seller</button>

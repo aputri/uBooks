@@ -25,16 +25,12 @@ class ListingController extends Controller
             return view('banned');
             }
         }
+        $subjects = DB::table('Categorys')->pluck('subject');
         $booklistings = DB::select('select * from listings');
-        return view('listing.index')->with('booklistings', $booklistings);
+        return view('listing.index')->with([
+            'booklistings' => $booklistings,
+            'subjects' => $subjects]);
     }
-
-    public function creation()
-    {
-        return view('listing.addlisting');
-    }
-
-
 
 
     public function showCategoryOnly()
@@ -70,7 +66,8 @@ class ListingController extends Controller
             'edition' => 'required',
             'condition' => 'required',
             'description' => 'required',
-            'image' => 'required'
+            'image' => 'required',
+            'courseInfo' => 'required'
         ]);
         $listing->name = $request->title;
         $listing->userId = Auth::User()->id;
@@ -82,6 +79,7 @@ class ListingController extends Controller
         $listing->condition = $request->condition;
         $listing->description = $request->description;
         $listing->imageLink = $request->imageLink;
+        $listing->courseInfo = $request->courseInfo;
 
         $volumeId = $request->volumeId;
         $book = json_decode(file_get_contents('https://www.googleapis.com/books/v1/volumes/'.$volumeId.'?key=AIzaSyA9d3aNH0Nmd7weoAQQ7hOBwNgoYvjh_qQ'), true);
@@ -105,16 +103,7 @@ class ListingController extends Controller
         );
         $listing->save();
 
-
-
-
-
-
-        //TODO: selct user ids from users table using session vars
-        //$booklistings = DB::select('select * from listings');
-
-        //return view('index')->with('booklistings', $booklistings);
-        return $this->showlisting($listing);
+        return redirect()->to('listing/' . $listing->id);
 
     }
 

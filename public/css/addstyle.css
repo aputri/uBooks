@@ -17,9 +17,6 @@ textarea {
 }
 
 
-button {
-    margin-left: 40%;
-}
 
 .modal {
     display:    none; /* Hidden by default */
@@ -43,7 +40,7 @@ button {
     border-radius:  3px;
     padding:    0 2em 2em 2em;
     width:  30em; /* Could be more or less, depending on screen size */
-    height: 65em;
+    height: 67em;
 }
 .close {
     margin-top: 1em;

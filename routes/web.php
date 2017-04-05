@@ -15,8 +15,6 @@
 
 Route::get('/', 'ListingController@index');
 Route::get('listing/{listing}', 'ListingController@showListing');
-Route::get('create', 'ListingController@creation');
-Route::post('done', 'ListingController@store');
 Route::get('/category', 'ListingController@showCategoryOnly');
 Route::post('/listing/report/{id}', 'ListingController@fileReport');
 
@@ -47,3 +45,6 @@ Route::post('/listing/contact/{id}', 'MessageController@fillForm');
 Route::get('/messages', 'MessageController@index');
 Route::get('/messages/{id}', 'MessageController@message');
 Route::post('/messages/{id}/add', 'MessageController@addMessage');
+
+//posting
+Route::post('store','ListingController@store');
