@@ -25,7 +25,7 @@ class ListingController extends Controller
             return view('banned');
             }
         }
-        $booklistings = DB::select('select * from listings');
+        $booklistings = DB::select('select * from listings where del = 0');
         return view('listing.index')->with('booklistings', $booklistings);
     }
 
@@ -46,9 +46,9 @@ class ListingController extends Controller
 
         }
         if ($cat_id == 0) {
-            $booklistings = DB::select('select * from listings');
+            $booklistings = DB::select('select * from listings where del = 0');
         } else {
-            $booklistings = DB::select('select * from listings where catId =?', [$cat_id]);
+            $booklistings = DB::select('select * from listings where catId =? and del = 0', [$cat_id]);
         }
         return view('listing.index')->with('booklistings', $booklistings);
     }
@@ -126,5 +126,24 @@ class ListingController extends Controller
 
         return redirect()->to('/')->with('reported', 'reported');
 
+    }
+
+    public function myListing() {
+        if(Auth::guest()) {
+            return redirect()->to('/login');
+        } else {
+            $id = Auth::User()->id;
+            $data = DB::select('select * from listings where userId = ? and del = 0', [$id]);
+            
+            return view('listing.mylisting')->with('listings', $data);
+        }
+    }
+
+    public function deleteListing($id) {
+        $del = Listing::find($id);
+        $del->del = 1;
+        $del->save();
+
+        return redirect()->to('/mylistings')->with('delete', 'delete');
     }
 }

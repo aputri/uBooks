@@ -65,6 +65,9 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
+                                    <a href = ' {{ URL::to('/mylistings') }}'>My Listings</a>
+                                </li>
+                                <li>
                                     <a href='{{ URL::to('/profile') }}'>My Profile</a>
                                 </li>
                                 <li>

@@ -20,6 +20,10 @@ Route::post('done', 'ListingController@store');
 Route::get('/category', 'ListingController@showCategoryOnly');
 Route::post('/listing/report/{id}', 'ListingController@fileReport');
 
+//Listing Management
+Route::get('/mylistings', 'ListingController@myListing');
+Route::get('/deleteListing/{id}', 'ListingController@deleteListing');
+
 //login
 Auth::routes();
 Route::get('/home', 'HomeController@index');
