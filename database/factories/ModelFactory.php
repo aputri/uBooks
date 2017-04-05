@@ -19,6 +19,29 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'remember_token' => str_random(10)
     ];
 });
+
+$factory->define(App\Listing::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+    	'userId' =>$faker->numberBetween($min = 1, $max = 10),
+    	'catId' => $faker->numberBetween($min = 1, $max = 2),
+    	'isbn' => $faker->isbn10,
+    	'name' => $faker->bs,
+    	'price' => $faker->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 500),
+    	'condition' => $faker->word,
+    	'description' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+    	'edition' => $faker->randomDigitNotNull,
+    	'retailPrice' => $faker->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 500),
+      	'created_at' => $faker->dateTimeThisMonth($max = 'now', $timezone = date_default_timezone_get())
+    ];
+});
+
+
+
+
+
+

@@ -19,6 +19,7 @@ Route::get('create', 'ListingController@creation');
 Route::post('done', 'ListingController@store');
 Route::get('/category', 'ListingController@showCategoryOnly');
 Route::post('/listing/report/{id}', 'ListingController@fileReport');
+Route::get('/price', 'ListingController@indexSort');
 
 //login
 Auth::routes();

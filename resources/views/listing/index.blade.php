@@ -37,11 +37,29 @@
                 <br>
                 <table class="col-md-12 table-striped">
                     <tr>
-                        <th>Title</th>
+                        <th>
+                            @if ($sortby == 'name' && $order == 'asc') 
+                                {{ link_to_action('ListingController@index', 'Title', array( 'sortby' => 'name', 'order' => 'desc')) }}
+                            @else 
+                                {{ link_to_action('ListingController@index','Title', array('sortby' => 'name','order' => 'asc')) }}
+                            @endif
+                        </th>
                         <th>Edition</th>
                         <th>Condition</th>
-                        <th>Price</th>
-                        <th>Retail Price</th>
+                        <th>
+                            @if ($sortby == 'price' && $order == 'asc') 
+                                {{ link_to_action('ListingController@index', 'Price', array( 'sortby' => 'price', 'order' => 'desc')) }}
+                            @else 
+                                {{ link_to_action('ListingController@index','Price', array('sortby' => 'price','order' => 'asc')) }}
+                            @endif
+                        </th>
+                        <th>
+                            @if ($sortby == 'created_at' && $order == 'asc') 
+                                {{ link_to_action('ListingController@index', 'Date', array( 'sortby' => 'created_at', 'order' => 'desc')) }}
+                            @else 
+                                {{ link_to_action('ListingController@index','Date', array('sortby' => 'created_at','order' => 'asc')) }}
+                            @endif
+                        </th>
                     </tr>
                     @foreach ($booklistings as $listing)
                         <tr>
@@ -58,10 +76,14 @@
                                 {{ $listing->price }}
                             </td>
                             <td>
-                                @if($listing->retailPrice==-1)
+                                @if($listing->created_at == NULL)
                                     N/A
+                                @elseif(Carbon\Carbon::now()->diffinDays($listing->created_at) > 1)
+                                    {{ Carbon\Carbon::now()->diffinDays($listing->created_at) }} days ago
+                                @elseif(Carbon\Carbon::now()->diffinDays($listing->created_at) == 1)
+                                    Yesterday
                                 @else
-                                    {{ $listing->retailPrice }}
+                                    Today
                                 @endif
                             </td>
                         </tr>
