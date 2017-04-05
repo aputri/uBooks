@@ -123,14 +123,15 @@
                         </ul>
                     </li>
                 </ul>
-                {{--<form class="navbar-form navbar-left" role="search">--}}
-                    {{--<div class="form-group">--}}
-                        {{--<div class="input-group">--}}
-                            {{--<span class="input-group-addon"><i class="fa fa-search"></i></span>--}}
-                            {{--<input type="text" class="form-control" placeholder="Search for something">--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</form>--}}
+                <!----------------------SEARCH BAR--------------------------------------->
+                <form class="navbar-form navbar-left" role="searchReq" action="./search" method="GET">
+                    <div class="form-group">
+                        <div>
+                            <span><i class="fa fa-search"></i></span>
+                            <input type="text" name="searchReq" class="form-control" placeholder="Search for something">
+                        </div>
+                    </div>
+                </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><i class="fa fa-link"></i> Link</a></li>
                     <li class="dropdown">

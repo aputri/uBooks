@@ -47,3 +47,7 @@ Route::post('/listing/contact/{id}', 'MessageController@fillForm');
 Route::get('/messages', 'MessageController@index');
 Route::get('/messages/{id}', 'MessageController@message');
 Route::post('/messages/{id}/add', 'MessageController@addMessage');
+
+//searching
+
+Route::get('/search', 'SearchController@search');
