@@ -40,13 +40,15 @@ class ListingController extends Controller
             $booklistings = Listing::all();
         }
 
-        return view('listing.index', compact('booklistings', 'sortby', 'order'));
+        $subjects = DB::table('Categorys')->pluck('subject');
+
+        return view('listing.index', compact('booklistings', 'sortby', 'order', 'subjects'));
     }
 
-     //   $subjects = DB::table('Categorys')->pluck('subject');
-    //    $booklistings = DB::select('select * from listings');
-   //     return view('listing.index',[
-  //          'booklistings' => $booklistings,
+        
+  //      $booklistings = DB::select('select * from listings');
+ //       return view('listing.index',[
+//            'booklistings' => $booklistings,
  //           'subjects' => $subjects]);
 //
    // }

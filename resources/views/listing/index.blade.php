@@ -4,7 +4,7 @@
     <script src="{{URL::to('js/jquery.min.js')}}"></script>
     <script src="{{URL::to('js/bootstrap.min.js')}}"></script>
     <div class="container">
-        {{--<div class="row">--}}
+
             <div class="col-md-10">
                 @if(session('success'))
                     <div class="alert alert-success">Order has been placed</div>
@@ -41,15 +41,6 @@
             </div>
             <table class="col-md-12 table-striped">
                 <tr>
-                    <th>Title</th>
-                    <th>Edition</th>
-                    <th>Condition</th>
-                    <th>Price</th>
-                    <th>Retail Price</th>
-                </tr>
-                @foreach ($booklistings as $listing)
-                    <tr>
-
                         <th>
                             @if ($sortby == 'name' && $order == 'asc') 
                                 {{ link_to_action('ListingController@index', 'Title', array( 'sortby' => 'name', 'order' => 'desc')) }}
@@ -106,7 +97,8 @@
 
                        
 
-    {{--</div>--}}
+   
+    
     <script src="{{URL::to('js/bundle.js')}}" type="text/javascript"></script>
 
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/addstyle.css')}}">
@@ -161,5 +153,6 @@
             </ul>
         </div>
     @endif
+
 
 @stop
