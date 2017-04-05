@@ -24439,8 +24439,12 @@ module.exports.lookup = lookup;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],38:[function(require,module,exports){
-
+$(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
 window.onload = function () {
+
+
     // Get the modal
     var modal = document.getElementById('myModal');
 

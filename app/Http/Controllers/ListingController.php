@@ -7,13 +7,11 @@ use Illuminate\Http\Request;
 //use Illuminate\Routing\Controller;
 use App\Http\Controllers\Controller as Controller;
 
-
-
-
 //use Illuminate\Routing\Controller;
 use \Auth;
 use App\Listing;
 use DB;
+
 
 class ListingController extends Controller
 {
@@ -41,14 +39,17 @@ class ListingController extends Controller
         } else {
             $booklistings = Listing::all();
         }
+
         return view('listing.index', compact('booklistings', 'sortby', 'order'));
     }
 
-    public function creation()
-    {
-        return view('listing.addlisting');
-    }
-
+     //   $subjects = DB::table('Categorys')->pluck('subject');
+    //    $booklistings = DB::select('select * from listings');
+   //     return view('listing.index',[
+  //          'booklistings' => $booklistings,
+ //           'subjects' => $subjects]);
+//
+   // }
 
 
     public function showCategoryOnly()
@@ -60,9 +61,9 @@ class ListingController extends Controller
 
         }
         if ($cat_id == 0) {
-            $booklistings = DB::select('select * from listings');
+            $booklistings = DB::select('select * from listings where del = 0');
         } else {
-            $booklistings = DB::select('select * from listings where catId =?', [$cat_id]);
+            $booklistings = DB::select('select * from listings where catId =? and del = 0', [$cat_id]);
         }
         return view('listing.index')->with('booklistings', $booklistings);
     }
@@ -84,7 +85,8 @@ class ListingController extends Controller
             'edition' => 'required',
             'condition' => 'required',
             'description' => 'required',
-            'image' => 'required'
+            'image' => 'required',
+            'courseInfo' => 'required'
         ]);
         $listing->name = $request->title;
         $listing->userId = Auth::User()->id;
@@ -96,6 +98,7 @@ class ListingController extends Controller
         $listing->condition = $request->condition;
         $listing->description = $request->description;
         $listing->imageLink = $request->imageLink;
+        $listing->courseInfo = $request->courseInfo;
 
         $volumeId = $request->volumeId;
         $book = json_decode(file_get_contents('https://www.googleapis.com/books/v1/volumes/'.$volumeId.'?key=AIzaSyA9d3aNH0Nmd7weoAQQ7hOBwNgoYvjh_qQ'), true);
@@ -119,16 +122,7 @@ class ListingController extends Controller
         );
         $listing->save();
 
-
-
-
-
-
-        //TODO: selct user ids from users table using session vars
-        //$booklistings = DB::select('select * from listings');
-
-        //return view('index')->with('booklistings', $booklistings);
-        return $this->showlisting($listing);
+        return redirect()->to('listing/' . $listing->id);
 
     }
 
@@ -142,5 +136,50 @@ class ListingController extends Controller
 
     }
 
+    public function myListing() {
+        if(Auth::guest()) {
+            return redirect()->to('/login');
+        } else {
+            $id = Auth::User()->id;
+            $data = DB::select('select * from listings where userId = ? and del = 0', [$id]);
+            
+            return view('listing.mylisting')->with('listings', $data);
+        }
+    }
+
+    public function deleteListing($id) {
+        $del = Listing::find($id);
+        if($del->userId == Auth::User()->id) {
+            $del->del = 1;
+            $del->save();
+
+            return redirect()->to('/mylistings')->with('delete', 'delete');
+        } else {
+            return redirect()->to('/');
+        }
+    }
+
+    public function editView($id) {
+        $listing = Listing::find($id);
+
+        return view('listing.editlisting')->with('listing', $listing);
+    }
+
+    public function edit($id, Request $request) {
+        $listing = Listing::find($id);
+        if($listing->userId == Auth::User()->id) {
+            $input = $request->all();
+            $listing->price = $request->input('price');
+            $listing->condition = $request->input('condition');
+            $listing->description = $request->input('description');
+            $listing->name = $request->input('name');
+            $listing->edition = $request->input('edition');
+            $listing->save();
+
+            return redirect()->to('/listing/'.$id);
+        } else {
+            return redirect()->to('/');
+        }
+    }
 
 }

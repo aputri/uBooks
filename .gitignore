@@ -9,3 +9,9 @@ Homestead.yaml
 .env
 _ide_helper.php
 /storage/logs
+/vendor/composer/autoload_classmap.php
+/vendor/composer/autoload_files.php
+/vendor/composer/autoload_static.php
+/vendor/composer/installed.json
+/config/database.php
+/storage/logs/laravel.log
