@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddAdminColumnToUsersTable' => $baseDir . '/database/migrations/2017_03_18_193702_add_admin_column_to_users_table.php',
     'AddBannedToUsersTable' => $baseDir . '/database/migrations/2017_03_22_210021_add_banned_to_users_table.php',
+    'AddDelListing' => $baseDir . '/database/migrations/2017_04_05_055807_add_del_listing.php',
     'AddReportCountToListings' => $baseDir . '/database/migrations/2017_03_29_034814_add_report_count_to_listings.php',
     'ChangeSalesTable' => $baseDir . '/database/migrations/2017_03_23_100406_change_sales_table.php',
     'CreateBooksTable' => $baseDir . '/database/migrations/2017_03_06_042914_create_books_table.php',
