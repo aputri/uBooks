@@ -30,7 +30,7 @@ class CreateListingsTable extends Migration
             $table->text('edition');
             $table->decimal('retailPrice', 8,2);
             $table->string('imagePath')->nullable();
-            $table->string('courseInfo');
+            $table->string('courseInfo')->nullable();
             $table->timestamps();
         });
     }
