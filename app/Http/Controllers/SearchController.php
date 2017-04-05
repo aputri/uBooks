@@ -30,7 +30,7 @@ class SearchController extends Controller
 
         
        
-        $subjects = DB::table('Categorys')->pluck('subject');
+        $subjects = DB::table('Categories')->pluck('subject');
         return view('listing.index', compact('booklistings', 'sortby', 'order', 'subjects'));
 
     }

@@ -20,7 +20,7 @@ class CreateListingsTable extends Migration
             $table->foreign('userId')->references('id')->on('users');
 
             $table->integer('catId')->unsigned();
-            $table->foreign('catId')->references('id')->on('categorys');
+            $table->foreign('catId')->references('id')->on('categories');
             $table->string('imageLink')->nullable();
             $table->bigInteger('isbn');
             $table->string('name');

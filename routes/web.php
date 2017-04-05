@@ -12,18 +12,17 @@
 */
 
 //Listing Controls
-
 Route::get('/', 'ListingController@index');
 Route::get('listing/{listing}', 'ListingController@showListing');
 Route::get('/category', 'ListingController@showCategoryOnly');
 Route::post('/listing/report/{id}', 'ListingController@fileReport');
-Route::get('/price', 'ListingController@indexSort');
 
 //Listing Management
 Route::get('/mylistings', 'ListingController@myListing');
 Route::get('/deleteListing/{id}', 'ListingController@deleteListing');
 Route::get('/editListing/{id}', 'ListingController@editView');
 Route::post('/edit/{id}', 'ListingController@edit');
+
 //login
 Auth::routes();
 Route::get('/home', 'HomeController@index');
@@ -39,7 +38,6 @@ Route::get('/administration/deletePost/{id}', 'AdministrationController@deletePo
 Route::get('/administration/ban/{user}', 'AdministrationController@banUser');
 Route::post('/administration/changePass/{user}', 'AdministrationController@changePass');
 
-
 //profile
 Route::get('/profile', 'UserController@getInfo');
 Route::post('/profile/editInfo', "UserController@changeInfo");
@@ -51,7 +49,6 @@ Route::post('/listing/contact/{id}', 'MessageController@fillForm');
 Route::get('/messages', 'MessageController@index');
 Route::get('/messages/{id}', 'MessageController@message');
 Route::post('/messages/{id}/add', 'MessageController@addMessage');
-
 
 //posting
 Route::post('store','ListingController@store');

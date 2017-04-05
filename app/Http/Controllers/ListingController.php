@@ -40,14 +40,14 @@ class ListingController extends Controller
             $booklistings = Listing::all();
         }
 
-        $subjects = DB::table('Categorys')->pluck('subject');
+        $subjects = DB::table('Categories')->pluck('subject');
 
         return view('listing.index', compact('booklistings', 'sortby', 'order', 'subjects'));
     }
 
 
 
-    public function showCategoryOnly()
+    public function showCategoriesOnly()
     {
         $cat_id = 0;
         try {

@@ -28,8 +28,8 @@ $factory->define(App\Listing::class, function (Faker\Generator $faker) {
 
     return [
     	'userId' =>$faker->numberBetween($min = 1, $max = 10),
-    	'catId' => $faker->numberBetween($min = 1, $max = 2),
-    	'isbn' => $faker->isbn10,
+    	'catId' => $faker->numberBetween($min = 1, $max = 10),
+    	'isbn' => $faker->randomNumber($nbDigits = 3),
     	'name' => $faker->bs,
     	'price' => $faker->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 500),
     	'condition' => $faker->word,
@@ -37,6 +37,13 @@ $factory->define(App\Listing::class, function (Faker\Generator $faker) {
     	'edition' => $faker->randomDigitNotNull,
     	'retailPrice' => $faker->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 500),
       	'created_at' => $faker->dateTimeThisMonth($max = 'now', $timezone = date_default_timezone_get())
+    ];
+});
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+
+    return [
+        'subject' => $faker->word
     ];
 });
 
