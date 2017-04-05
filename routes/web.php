@@ -23,7 +23,8 @@ Route::post('/listing/report/{id}', 'ListingController@fileReport');
 //Listing Management
 Route::get('/mylistings', 'ListingController@myListing');
 Route::get('/deleteListing/{id}', 'ListingController@deleteListing');
-
+Route::get('/editListing/{id}', 'ListingController@editView');
+Route::post('/edit/{id}', 'ListingController@edit');
 //login
 Auth::routes();
 Route::get('/home', 'HomeController@index');

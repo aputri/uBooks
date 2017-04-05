@@ -7,13 +7,11 @@ use Illuminate\Http\Request;
 //use Illuminate\Routing\Controller;
 use App\Http\Controllers\Controller as Controller;
 
-
-
-
 //use Illuminate\Routing\Controller;
 use \Auth;
 use App\Listing;
 use DB;
+
 
 class ListingController extends Controller
 {
@@ -141,9 +139,36 @@ class ListingController extends Controller
 
     public function deleteListing($id) {
         $del = Listing::find($id);
-        $del->del = 1;
-        $del->save();
+        if($del->userId == Auth::User()->id) {
+            $del->del = 1;
+            $del->save();
 
-        return redirect()->to('/mylistings')->with('delete', 'delete');
+            return redirect()->to('/mylistings')->with('delete', 'delete');
+        } else {
+            return redirect()->to('/');
+        }
+    }
+
+    public function editView($id) {
+        $listing = Listing::find($id);
+
+        return view('listing.editlisting')->with('listing', $listing);
+    }
+
+    public function edit($id, Request $request) {
+        $listing = Listing::find($id);
+        if($listing->userId == Auth::User()->id) {
+            $input = $request->all();
+            $listing->price = $request->input('price');
+            $listing->condition = $request->input('condition');
+            $listing->description = $request->input('description');
+            $listing->name = $request->input('name');
+            $listing->edition = $request->input('edition');
+            $listing->save();
+
+            return redirect()->to('/listing/'.$id);
+        } else {
+            return redirect()->to('/');
+        }
     }
 }
