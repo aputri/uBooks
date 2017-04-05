@@ -45,13 +45,6 @@ class ListingController extends Controller
         return view('listing.index', compact('booklistings', 'sortby', 'order', 'subjects'));
     }
 
-        
-  //      $booklistings = DB::select('select * from listings');
- //       return view('listing.index',[
-//            'booklistings' => $booklistings,
- //           'subjects' => $subjects]);
-//
-   // }
 
 
     public function showCategoryOnly()
