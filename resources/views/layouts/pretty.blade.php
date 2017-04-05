@@ -127,7 +127,7 @@
                     </li>
                 </ul>
                 <!----------------------SEARCH BAR--------------------------------------->
-                <form class="navbar-form navbar-left" role="searchReq" action="./search" method="GET">
+                <form class="navbar-form navbar-left" role="searchReq" action="{{ action('SearchController@search') }}" method="GET">
                     <div class="form-group">
                         <div>
                             <span><i class="fa fa-search"></i></span>
