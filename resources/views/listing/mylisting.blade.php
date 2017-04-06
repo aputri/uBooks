@@ -1,4 +1,5 @@
 @extends('layouts.pretty')
+@section('title', 'My Listings')
 @section('content')
 
 <div class = "col-md-12">

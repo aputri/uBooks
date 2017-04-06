@@ -1,5 +1,5 @@
 @extends('layouts.pretty')
-
+@section('title', 'Log in')
 @section('content')
 <div class="container">
     <div class="row">
