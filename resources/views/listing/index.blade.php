@@ -92,7 +92,7 @@
                     </tr>
                     @foreach ($booklistings as $listing)
                         <tr>
-                            <td><a href="listing/{{ $listing->id }}" class="rowlink">
+                            <td style = "padding: 2px"><a href="listing/{{ $listing->id }}" class="rowlink">
                                     {{ $listing->name }}
                                 </a></td>
                             <td>
