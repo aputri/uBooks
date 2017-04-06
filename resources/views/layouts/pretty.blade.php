@@ -105,7 +105,7 @@
                 <form class="navbar-form navbar-left" role="searchReq" action="{{ action('SearchController@search') }}" method="GET">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" name="searchReq" class="form-control" placeholder="Search for a Book">
+                            <input type="text" name="searchReq" class="form-control" style="width: 500px; margin-left: 180px" placeholder="Search for a Book">
                             <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
 
                         </div>
