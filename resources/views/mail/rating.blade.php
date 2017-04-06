@@ -1,0 +1,1 @@
+Submit your rating <a href = "http://localhost/ubooks/public/rating/{{ $listing->id }}"> here</a>

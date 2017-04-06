@@ -9,17 +9,24 @@
                         <div class="caption">
                             <img class="img-responsive" src="{{$listing->imageLink}}">
                             @if( $listing->del > 0)
-                                    <img src="{{ URL::to('img/sold.png') }}" style="position: absolute;">
+                                    <img src="{{ URL::to('img/sold.png') }}" style="position: absolute; z-index: 10;">
                             @endif
                             <h3 class="pull-right" style="color:#5bc6c5">${{ $listing->price }}</h3>
                             <h3><a href="#" style="color:#5bc6c5">{{ $listing->name}}</a></h3>
+                            @if(isset($rating->avgrating))
+                            <h3>Seller Rating:
+                                @for($i = 0; $i < $rating->avgrating; $i++)
+                                    <i class = "fa fa-star"></i>
+                                @endfor
+                            </h3>
+                            @endif
                             <p>
                                 <strong>Edition: {{$listing->edition}}</strong>
                             <h4>Condition: {{ $listing->condition}}</h4>
                             </p>
                             <p>{{ $listing->description }}</p>
                             <div style = "position:relative">
-                                <img class="img-responsive" src="{{"../../storage/app/public/" . $listing->imagePath}}" style="position: absolute;">
+                                <img height = "400" width = "400" class= "img-thumbnail top10 bottom20" src="{{"../../storage/app/public/" . $listing->imagePath}}" style = "z-index: -1;">
                 
                             </div>
                             @if(Auth::User())

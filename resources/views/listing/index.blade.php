@@ -4,130 +4,104 @@
     <script src="{{URL::to('js/jquery.min.js')}}"></script>
     <script src="{{URL::to('js/bootstrap.min.js')}}"></script>
     <div class="container">
+        @if(session('success'))
+            <div class="alert alert-success">Order has been placed</div>
+        @endif
+        @if(session('reported'))
+            <div class="alert alert-success">Listing has been reported</div>
+        @endif
+        @if(Auth::User())
+            <button class="bottom20 btn btn-info" id="add">
+                <span class="fa fa-plus"></span>&nbsp;&nbsp;Create New Listing
+            </button>
+            <br>
+        @endif
+        <table class="col-md-12 table table-striped">
+            <tr>
+                <th>
+                    @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
+                        @if ($sortby == 'name' && $order == 'asc')
+                            {{ link_to_action('SearchController@search', 'Title', array( 'sortby' => 'name', 'order' => 'desc', 'searchReq' => $search)) }}
+                        @else
+                            {{ link_to_action('SearchController@search','Title', array('sortby' => 'name','order' => 'asc', 'searchReq' => $search)) }}
+                        @endif
+                    @else
+                        @if ($sortby == 'name' && $order == 'asc')
+                            {{ link_to_action('ListingController@index', 'Title', array( 'sortby' => 'name', 'order' => 'desc')) }}
+                        @else
+                            {{ link_to_action('ListingController@index','Title', array('sortby' => 'name','order' => 'asc')) }}
+                        @endif
+                    @endif
 
-            <div class="col-md-10">
-                @if(session('success'))
-                    <div class="alert alert-success">Order has been placed</div>
-                @endif
-                @if(session('reported'))
-                    <div class="alert alert-success">Listing has been reported</div>
-                @endif
-                <b>uBooks: books for u</b><br>
-                <form action="{{action('ListingController@showCategoryOnly')}}">
-                    <select name="categories">
-                        <option value="0">All Subjects</option>
-                        <option value="1">Biology</option>
-                        <option value="2">Business</option>
-                        <option value="3">Computer Science</option>
-                        <option value="4">Education</option>
-                        <option value="5">English</option>
-                        <option value="6">Engineering</option>
-                        <option value="7">Human Kinetics</option>
-                        <option value="8">Mathematics</option>
-                        <option value="9">Physics</option>
-                    </select>
-                    <button type="submit">Submit</button>
-                </form>
+                </th>
+                <th>Edition</th>
+                <th>Condition</th>
+                <th>
+                    @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
+                        @if ($sortby == 'price' && $order == 'asc')
+                            {{ link_to_action('SearchController@search', 'Price', array( 'sortby' => 'price', 'order' => 'desc', 'searchReq' => $search)) }}
+                        @else
+                            {{ link_to_action('SearchController@search','Price', array('sortby' => 'price','order' => 'asc', 'searchReq' => $search)) }}
+                        @endif
+                    @else
+                        @if ($sortby == 'price' && $order == 'asc')
+                            {{ link_to_action('ListingController@index', 'Price', array( 'sortby' => 'price', 'order' => 'desc')) }}
+                        @else
+                            {{ link_to_action('ListingController@index','Price', array('sortby' => 'price','order' => 'asc')) }}
+                        @endif
+                    @endif
 
-
-                <br>
-
-            </div>
-            <div class="col-md-2 pull-right">
-                @if(Auth::User())
-                    <button id="add">Create New Listing</button>
-                    <br>
-                @endif
-            </div>
-            <table class="col-md-12 table-striped">
+                </th>
+                <th>
+                    @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
+                        @if ($sortby == 'created_at' && $order == 'asc')
+                            {{ link_to_action('SearchController@search', 'Date', array( 'sortby' => 'created_at', 'order' => 'desc', 'searchReq' => $search)) }}
+                        @else
+                            {{ link_to_action('SearchController@search','Date', array('sortby' => 'created_at','order' => 'asc', 'searchReq' => $search)) }}
+                        @endif
+                    @else
+                        @if ($sortby == 'created_at' && $order == 'asc')
+                            {{ link_to_action('ListingController@index', 'Date', array( 'sortby' => 'created_at', 'order' => 'desc')) }}
+                        @else
+                            {{ link_to_action('ListingController@index','Date', array('sortby' => 'created_at','order' => 'asc')) }}
+                        @endif
+                    @endif
+                </th>
+            </tr>
+            @foreach ($booklistings as $listing)
                 <tr>
-                        <th>
-                            @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
-                                @if ($sortby == 'name' && $order == 'asc') 
-                                    {{ link_to_action('SearchController@search', 'Title', array( 'sortby' => 'name', 'order' => 'desc', 'searchReq' => $search)) }}
-                                @else 
-                                    {{ link_to_action('SearchController@search','Title', array('sortby' => 'name','order' => 'asc', 'searchReq' => $search)) }}
-                                @endif
-                            @else
-                                @if ($sortby == 'name' && $order == 'asc') 
-                                     {{ link_to_action('ListingController@index', 'Title', array( 'sortby' => 'name', 'order' => 'desc')) }}
-                                @else 
-                                    {{ link_to_action('ListingController@index','Title', array('sortby' => 'name','order' => 'asc')) }}
-                                @endif
-                            @endif
-                        </th>
-                        <th>Edition</th>
-                        <th>Condition</th>
-                        <th>
-                            @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
-                                @if ($sortby == 'price' && $order == 'asc') 
-                                    {{ link_to_action('SearchController@search', 'Price', array( 'sortby' => 'price', 'order' => 'desc', 'searchReq' => $search)) }}
-                                @else 
-                                    {{ link_to_action('SearchController@search','Price', array('sortby' => 'price','order' => 'asc', 'searchReq' => $search)) }}
-                                @endif
-                            @else
-                                @if ($sortby == 'price' && $order == 'asc') 
-                                     {{ link_to_action('ListingController@index', 'Price', array( 'sortby' => 'price', 'order' => 'desc')) }}
-                                @else 
-                                    {{ link_to_action('ListingController@index','Price', array('sortby' => 'price','order' => 'asc')) }}
-                                @endif
-                            @endif
+                    <td><a href="listing/{{ $listing->id }}" class="rowlink">
+                            {{ $listing->name }}
+                        </a></td>
+                    <td>
+                        {{ $listing->edition }}
+                    </td>
+                    <td>
+                        {{ $listing->condition }}
+                    </td>
+                    <td>
+                        @if($listing->del > 0)
+                            SOLD
+                        @else
+                            {{ $listing->price }}
+                        @endif
+                    </td>
+                    <td>
+                        @if($listing->created_at == NULL)
+                            N/A
+                        @elseif(Carbon\Carbon::now()->diffinDays($listing->created_at) > 1)
+                            {{ Carbon\Carbon::now()->diffinDays($listing->created_at) }} days ago
+                        @elseif(Carbon\Carbon::now()->diffinDays($listing->created_at) == 1)
+                            Yesterday
+                        @else
+                            Today
+                        @endif
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
 
-                        </th>
-                        <th>
-                            @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
-                                @if ($sortby == 'created_at' && $order == 'asc') 
-                                    {{ link_to_action('SearchController@search', 'Date', array( 'sortby' => 'created_at', 'order' => 'desc', 'searchReq' => $search)) }}
-                                @else 
-                                    {{ link_to_action('SearchController@search','Date', array('sortby' => 'created_at','order' => 'asc', 'searchReq' => $search)) }}
-                                @endif
-                            @else
-                                @if ($sortby == 'created_at' && $order == 'asc') 
-                                     {{ link_to_action('ListingController@index', 'Date', array( 'sortby' => 'created_at', 'order' => 'desc')) }}
-                                @else 
-                                    {{ link_to_action('ListingController@index','Date', array('sortby' => 'created_at','order' => 'asc')) }}
-                                @endif
-                            @endif
-                        </th>
-                    </tr>
-                    @foreach ($booklistings as $listing)
-                        <tr>
-                            <td style = "padding: 2px"><a href="listing/{{ $listing->id }}" class="rowlink">
-                                    {{ $listing->name }}
-                                </a></td>
-                            <td>
-                                {{ $listing->edition }}
-                            </td>
-                            <td>
-                                {{ $listing->condition }}
-                            </td>
-                            <td>
-                                @if($listing->del > 0)
-                                    SOLD
-                                @else
-                                    {{ $listing->price }}
-                                @endif
-                            </td>
-                            <td>
-                                @if($listing->created_at == NULL)
-                                    N/A
-                                @elseif(Carbon\Carbon::now()->diffinDays($listing->created_at) > 1)
-                                    {{ Carbon\Carbon::now()->diffinDays($listing->created_at) }} days ago
-                                @elseif(Carbon\Carbon::now()->diffinDays($listing->created_at) == 1)
-                                    Yesterday
-                                @else
-                                    Today
-                                @endif
-                            </td>
-                        </tr>
-                    @endforeach
-                </table>
-            </div>
-
-                       
-
-   
-    
     <script src="{{URL::to('js/bundle.js')}}" type="text/javascript"></script>
 
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/addstyle.css')}}">
@@ -168,7 +142,7 @@
             {{ Form::label('course', "What course was this textbook for?") }}
             {{ Form::text('courseInfo', null, ['placeholder'=>'Ex: COSC310'] ) }}
             <br>
-            <input class="btn-success pull-right"  type="submit" value="Post Now">
+            <input class="btn-success pull-right" type="submit" value="Post Now">
 
             {{ Form::close() }}
         </div>
