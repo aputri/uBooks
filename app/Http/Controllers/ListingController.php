@@ -33,6 +33,14 @@ class ListingController extends Controller
     //This function is for sorting the index page
     
     public function index(Request $request){
+
+        if(Auth::check()){
+            if(Auth::user()->banned){
+                return view('banned');
+            }
+        }
+
+
         $sortby = $request->get('sortby');
         $order = $request->get('order');
         //$search = $_GET['searchReq'];
@@ -159,7 +167,6 @@ class ListingController extends Controller
 
             //Send an email to the user to fill out rating
             //check to see if sale exits
-
             $buyerId = DB::select('select buyerId from sales where listingId = ?', [$id]);
             if($buyerId) {
                 $buyer = DB::table('sales')->where('buyerId', $buyerId)->first();
@@ -168,10 +175,6 @@ class ListingController extends Controller
                     $m->to($buyer->email, $buyer->name)->subject('Rate your Experience for Buying ' . $toBeDeleted->name);
                 });
             }
-
-
-
-
             return redirect()->to('/mylistings')->with('delete', 'delete');
         } else {
             return redirect()->to('/');
