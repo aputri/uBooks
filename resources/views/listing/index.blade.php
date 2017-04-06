@@ -32,6 +32,7 @@
                             {{ link_to_action('ListingController@index','Title', array('sortby' => 'name','order' => 'asc')) }}
                         @endif
                     @endif
+
                 </th>
                 <th>Edition</th>
                 <th>Condition</th>
