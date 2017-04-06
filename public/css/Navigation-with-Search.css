@@ -1,5 +1,5 @@
 .navigation-clean-search {
-  background:#cdcdcd;
+  background:#585858;
   padding-top:10px;
   padding-bottom:10px;
   color:#333;
@@ -7,6 +7,10 @@
   box-shadow:none;
   border:none;
   margin-bottom:0;
+}
+
+#banner {
+  width: 100%;
 }
 
 @media (max-width:767px) {
