@@ -114,7 +114,7 @@
             <span class="close">x</span>
             <h1>Add a Listing</h1>
 
-            {{ Form::open(['method' => 'post', 'url' => 'store', 'files'=>'true'])}}
+            {{ Form::open(['method' => 'post', 'url' => 'store', 'files'=>'true', 'id' => 'listing'])}}
             {{ Form::label('isbn', 'ISBN:')}}
             {{ Form::text('isbn',null, ['data-toggle'=>'tooltip', 'data-placement'=>"right", 'title'=>"Click add by isbn to automatically fill out most of the fields"])}}
 
