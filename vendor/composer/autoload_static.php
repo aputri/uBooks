@@ -371,10 +371,7 @@ class ComposerStaticInitae9910b5aaf4e04613a65257a1f71d7d
         'AddBannedToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_22_210021_add_banned_to_users_table.php',
         'AddDelListing' => __DIR__ . '/../..' . '/database/migrations/2017_04_05_055807_add_del_listing.php',
         'AddReportCountToListings' => __DIR__ . '/../..' . '/database/migrations/2017_03_29_034814_add_report_count_to_listings.php',
-<<<<<<< HEAD
         'AddSoldColumnToListingsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_06_043203_AddSoldColumnToListingsTable.php',
-=======
->>>>>>> 3d02b4b30c41bbb3a1e87ded0172e4970b3d2aab
         'CategoriesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CategoriesTableSeeder.php',
         'ChangeSalesTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_23_100406_change_sales_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_05_222556_create_categories_table.php',
