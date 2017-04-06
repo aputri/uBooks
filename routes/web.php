@@ -44,7 +44,6 @@ Route::post('/profile/editInfo', "UserController@changeInfo");
 Route::post('/profile/changePass', 'UserController@changePassword');
 
 //messaging
-
 Route::post('/listing/contact/{id}', 'MessageController@fillForm');
 Route::get('/messages', 'MessageController@index');
 Route::get('/messages/{id}', 'MessageController@message');
@@ -52,7 +51,7 @@ Route::post('/messages/{id}/add', 'MessageController@addMessage');
 
 //posting
 Route::post('store','ListingController@store');
-//searching
 
+//searching
 Route::get('/search', 'SearchController@search');
 

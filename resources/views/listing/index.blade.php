@@ -42,26 +42,51 @@
             <table class="col-md-12 table-striped">
                 <tr>
                         <th>
-                            @if ($sortby == 'name' && $order == 'asc') 
-                                {{ link_to_action('ListingController@index', 'Title', array( 'sortby' => 'name', 'order' => 'desc')) }}
-                            @else 
-                                {{ link_to_action('ListingController@index','Title', array('sortby' => 'name','order' => 'asc')) }}
+                            @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
+                                @if ($sortby == 'name' && $order == 'asc') 
+                                    {{ link_to_action('SearchController@search', 'Title', array( 'sortby' => 'name', 'order' => 'desc', 'searchReq' => $search)) }}
+                                @else 
+                                    {{ link_to_action('SearchController@search','Title', array('sortby' => 'name','order' => 'asc', 'searchReq' => $search)) }}
+                                @endif
+                            @else
+                                @if ($sortby == 'name' && $order == 'asc') 
+                                     {{ link_to_action('ListingController@index', 'Title', array( 'sortby' => 'name', 'order' => 'desc')) }}
+                                @else 
+                                    {{ link_to_action('ListingController@index','Title', array('sortby' => 'name','order' => 'asc')) }}
+                                @endif
                             @endif
                         </th>
                         <th>Edition</th>
                         <th>Condition</th>
                         <th>
-                            @if ($sortby == 'price' && $order == 'asc') 
-                                {{ link_to_action('ListingController@index', 'Price', array( 'sortby' => 'price', 'order' => 'desc')) }}
-                            @else 
-                                {{ link_to_action('ListingController@index','Price', array('sortby' => 'price','order' => 'asc')) }}
+                            @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
+                                @if ($sortby == 'price' && $order == 'asc') 
+                                    {{ link_to_action('SearchController@search', 'Price', array( 'sortby' => 'price', 'order' => 'desc', 'searchReq' => $search)) }}
+                                @else 
+                                    {{ link_to_action('SearchController@search','Price', array('sortby' => 'price','order' => 'asc', 'searchReq' => $search)) }}
+                                @endif
+                            @else
+                                @if ($sortby == 'price' && $order == 'asc') 
+                                     {{ link_to_action('ListingController@index', 'Price', array( 'sortby' => 'price', 'order' => 'desc')) }}
+                                @else 
+                                    {{ link_to_action('ListingController@index','Price', array('sortby' => 'price','order' => 'asc')) }}
+                                @endif
                             @endif
+
                         </th>
                         <th>
-                            @if ($sortby == 'created_at' && $order == 'asc') 
-                                {{ link_to_action('ListingController@index', 'Date', array( 'sortby' => 'created_at', 'order' => 'desc')) }}
-                            @else 
-                                {{ link_to_action('ListingController@index','Date', array('sortby' => 'created_at','order' => 'asc')) }}
+                            @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
+                                @if ($sortby == 'created_at' && $order == 'asc') 
+                                    {{ link_to_action('SearchController@search', 'Date', array( 'sortby' => 'created_at', 'order' => 'desc', 'searchReq' => $search)) }}
+                                @else 
+                                    {{ link_to_action('SearchController@search','Date', array('sortby' => 'created_at','order' => 'asc', 'searchReq' => $search)) }}
+                                @endif
+                            @else
+                                @if ($sortby == 'created_at' && $order == 'asc') 
+                                     {{ link_to_action('ListingController@index', 'Date', array( 'sortby' => 'created_at', 'order' => 'desc')) }}
+                                @else 
+                                    {{ link_to_action('ListingController@index','Date', array('sortby' => 'created_at','order' => 'asc')) }}
+                                @endif
                             @endif
                         </th>
                     </tr>
