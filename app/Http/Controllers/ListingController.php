@@ -152,18 +152,22 @@ class ListingController extends Controller
     }
 
     public function deleteListing($id) {
-        $del = Listing::find($id);
-        if($del->userId == Auth::User()->id) {
-            $del->del = 1;
-            $del->save();
+        $toBeDeleted = Listing::find($id);
+        if($toBeDeleted->userId == Auth::User()->id) {
+            $toBeDeleted->del = 1;
+            $toBeDeleted->save();
 
             //Send an email to the user to fill out rating
-            $sale = collect(DB::select('select buyerId from sales where listingId = ?', [$id]))->first();
-            $buyer = User::find($sale->buyerId);
+            //check to see if sale exits
 
-            Mail::send('mail.rating', ['listing' => $del], function ($m) use ($del, $buyer) {
-                $m->to($buyer->email, $buyer->name)->subject('Rate your Experience for Buying ' . $del->name);
-            });
+            $buyerId = DB::select('select buyerId from sales where listingId = ?', [$id]);
+            if($buyerId) {
+                $buyer = DB::table('sales')->where('buyerId', $buyerId)->first();
+
+                Mail::send('mail.rating', ['listing' => $toBeDeleted], function ($m) use ($toBeDeleted, $buyer) {
+                    $m->to($buyer->email, $buyer->name)->subject('Rate your Experience for Buying ' . $toBeDeleted->name);
+                });
+            }
 
 
 
