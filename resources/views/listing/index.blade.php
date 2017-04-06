@@ -81,7 +81,7 @@
                     </td>
                     <td>
                         @if($listing->del > 0)
-                            SOLD
+                            <span style= "color:red; font-weight:bold">SOLD</span>
                         @else
                             {{ $listing->price }}
                         @endif
