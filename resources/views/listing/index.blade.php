@@ -21,15 +21,15 @@
                 <th>
                     @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
                         @if ($sortby == 'name' && $order == 'asc')
-                            {{ link_to_action('SearchController@search', 'Title', array( 'sortby' => 'name', 'order' => 'desc', 'searchReq' => $search)) }}
+                            {{ link_to_action('SearchController@search', 'Title &darr;', array( 'sortby' => 'name', 'order' => 'desc', 'searchReq' => $search), array('style' => 'color: black; text-decoration: none; ')) }}
                         @else
-                            {{ link_to_action('SearchController@search','Title', array('sortby' => 'name','order' => 'asc', 'searchReq' => $search)) }}
+                            {{ link_to_action('SearchController@search','Title &uarr;', array('sortby' => 'name','order' => 'asc', 'searchReq' => $search), array('style' => 'color: black; text-decoration: none; ')) }}
                         @endif
                     @else
                         @if ($sortby == 'name' && $order == 'asc')
-                            {{ link_to_action('ListingController@index', 'Title', array( 'sortby' => 'name', 'order' => 'desc')) }}
+                            {{ link_to_action('ListingController@index', 'Title &darr;', array( 'sortby' => 'name', 'order' => 'desc'), array('style' => 'color: black; text-decoration: none; ')) }}
                         @else
-                            {{ link_to_action('ListingController@index','Title', array('sortby' => 'name','order' => 'asc')) }}
+                            {{ link_to_action('ListingController@index', 'Title &uarr;', array('sortby' => 'name','order' => 'asc'), array('style' => 'color: black; text-decoration: none; ')) }}
                         @endif
                     @endif
 
@@ -39,15 +39,15 @@
                 <th>
                     @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
                         @if ($sortby == 'price' && $order == 'asc')
-                            {{ link_to_action('SearchController@search', 'Price', array( 'sortby' => 'price', 'order' => 'desc', 'searchReq' => $search)) }}
+                            {{ link_to_action('SearchController@search', 'Price &darr;', array( 'sortby' => 'price', 'order' => 'desc', 'searchReq' => $search), array('style' => 'color: black; text-decoration: none; ')) }}
                         @else
-                            {{ link_to_action('SearchController@search','Price', array('sortby' => 'price','order' => 'asc', 'searchReq' => $search)) }}
+                            {{ link_to_action('SearchController@search','Price &uarr;', array('sortby' => 'price','order' => 'asc', 'searchReq' => $search), array('style' => 'color: black; text-decoration: none; ')) }}
                         @endif
                     @else
                         @if ($sortby == 'price' && $order == 'asc')
-                            {{ link_to_action('ListingController@index', 'Price', array( 'sortby' => 'price', 'order' => 'desc')) }}
+                            {{ link_to_action('ListingController@index', 'Price &darr;', array( 'sortby' => 'price', 'order' => 'desc'), array('style' => 'color: black; text-decoration: none; ')) }}
                         @else
-                            {{ link_to_action('ListingController@index','Price', array('sortby' => 'price','order' => 'asc')) }}
+                            {{ link_to_action('ListingController@index','Price &uarr;', array('sortby' => 'price','order' => 'asc'), array('style' => 'color: black; text-decoration: none; ')) }}
                         @endif
                     @endif
 
@@ -55,15 +55,15 @@
                 <th>
                     @if (Route::getCurrentRoute()->getActionName() == 'App\Http\Controllers\SearchController@search')
                         @if ($sortby == 'created_at' && $order == 'asc')
-                            {{ link_to_action('SearchController@search', 'Date', array( 'sortby' => 'created_at', 'order' => 'desc', 'searchReq' => $search)) }}
+                            {{ link_to_action('SearchController@search', 'Date &darr;', array( 'sortby' => 'created_at', 'order' => 'desc', 'searchReq' => $search), array('style' => 'color: black; text-decoration: none; ')) }}
                         @else
-                            {{ link_to_action('SearchController@search','Date', array('sortby' => 'created_at','order' => 'asc', 'searchReq' => $search)) }}
+                            {{ link_to_action('SearchController@search','Date &uarr;', array('sortby' => 'created_at','order' => 'asc', 'searchReq' => $search), array('style' => 'color: black; text-decoration: none; ')) }}
                         @endif
                     @else
                         @if ($sortby == 'created_at' && $order == 'asc')
-                            {{ link_to_action('ListingController@index', 'Date', array( 'sortby' => 'created_at', 'order' => 'desc')) }}
+                            {{ link_to_action('ListingController@index', 'Date &darr;', array( 'sortby' => 'created_at', 'order' => 'desc'), array('style' => 'color: black; text-decoration: none; ')) }}
                         @else
-                            {{ link_to_action('ListingController@index','Date', array('sortby' => 'created_at','order' => 'asc')) }}
+                            {{ link_to_action('ListingController@index','Date &uarr;', array('sortby' => 'created_at','order' => 'asc'), array('style' => 'color: black; text-decoration: none; ')) }}
                         @endif
                     @endif
                 </th>
