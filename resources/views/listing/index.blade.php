@@ -102,7 +102,11 @@
                                 {{ $listing->condition }}
                             </td>
                             <td>
-                                {{ $listing->price }}
+                                @if($listing->del > 0)
+                                    SOLD
+                                @else
+                                    {{ $listing->price }}
+                                @endif
                             </td>
                             <td>
                                 @if($listing->created_at == NULL)

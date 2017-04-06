@@ -33,6 +33,7 @@ class ListingController extends Controller
     public function index(Request $request){
         $sortby = $request->get('sortby');
         $order = $request->get('order');
+        //$search = $_GET['searchReq'];
 
         if ($sortby && $order) {
             $booklistings = Listing::orderBy($sortby, $order)->get();
@@ -152,7 +153,7 @@ class ListingController extends Controller
         } else {
             return redirect()->to('/');
         }
-    }
+    }   
 
     public function editView($id) {
         $listing = Listing::find($id);

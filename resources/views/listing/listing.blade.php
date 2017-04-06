@@ -18,7 +18,9 @@
                             <div style = "position:relative">
                                 <img class="img-responsive" src="{{"../../storage/app/public/" . $listing->imagePath}}" style="position: absolute;">
                                 <!-- If item is sold, add this line -->
-                                <img src="{{ URL::to('img/sold.png') }}" style="position: absolute;">
+                                @if( $listing->del > 0)
+                                    <img src="{{ URL::to('img/sold.png') }}" style="position: absolute;">
+                                @endif
                             </div>
                             @if(Auth::User())
                                 <div class="btn-toolbar">
