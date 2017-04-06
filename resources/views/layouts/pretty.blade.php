@@ -102,7 +102,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <!----------------------SEARCH BAR--------------------------------------->
-                <form class="navbar-form navbar-left" role="searchReq" action="{{ action('SearchController@search') }}" method="GET">
+                <form id="search" class="navbar-form navbar-left" role="searchReq" action="{{ action('SearchController@search') }}" method="GET">
                     <div class="form-group">
                         <div class="input-group">
                             <input type="text" name="searchReq" class="form-control" style="width: 500px; margin-left: 180px" placeholder="Search for a Book">
