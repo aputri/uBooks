@@ -1,5 +1,5 @@
 @extends('layouts.pretty')
-
+@section('title', 'Rate your experience')
 @section('content')
 
 @if(Auth::User()->id == $buyer)

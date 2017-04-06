@@ -1,5 +1,5 @@
 @extends('layouts.pretty')
-
+@section('title', 'Edit Listing')
 @section('content')
     <div class="container">
         <div class="row">

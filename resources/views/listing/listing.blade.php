@@ -1,5 +1,5 @@
 @extends('layouts.pretty')
-
+@section('title', $listing->name)
 @section('content')
     <div class="container">
         <div class="row">
