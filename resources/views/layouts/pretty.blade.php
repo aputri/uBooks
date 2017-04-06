@@ -8,6 +8,7 @@
     <link href="{{ URL::to('css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="shortcut icon" href="{{ URL::to('img/fav.png') }}">
     <link href="{{ URL::to('fonts/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ URL::to('css/Alex_NavDefault.css') }}" rel="stylesheet">
     <link href="{{ URL::to('css/Footer-Basic.css') }}" rel="stylesheet">
