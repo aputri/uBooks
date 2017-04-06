@@ -15,7 +15,11 @@
                             <h4>Condition: {{ $listing->condition}}</h4>
                             </p>
                             <p>{{ $listing->description }}</p>
-                            <img class="img-responsive" src="{{"../../storage/app/public/" . $listing->imagePath}}">
+                            <div style = "position:relative">
+                                <img class="img-responsive" src="{{"../../storage/app/public/" . $listing->imagePath}}" style="position: absolute;">
+                                <!-- If item is sold, add this line -->
+                                <img src="{{ URL::to('img/sold.png') }}" style="position: absolute;">
+                            </div>
                             @if(Auth::User())
                                 <div class="btn-toolbar">
                                     <button style="width:150px" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-md btn-block pull-right"><span class="glyphicon glyphicon-envelope"></span> Contact Seller</button>
