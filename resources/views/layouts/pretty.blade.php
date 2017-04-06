@@ -32,13 +32,14 @@
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
-                        <li><a style="margin-left:2em;" class="btn btn-default navbar-btn navbar-right action-button" role="button" href="{{ URL::to('/') }}">Listings</a></li>
+
                     @if(Auth::user() && Auth::user()->admin)
                         <li><a style="margin-left:2em;" class="btn btn-default navbar-btn navbar-right action-button" role="button" href="{{ URL::to('/administration') }}">Administration</a></li>
                     @endif
                     @if(Auth::user())
                         <li><a style="margin-left:2em;" class="btn btn-default navbar-btn navbar-right action-button" role="button" href="{{ URL::to('/messages') }}">My Messages</a></li>
                     @endif
+
                 <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a class="btn btn-default navbar-btn navbar-right action-button" role="button"

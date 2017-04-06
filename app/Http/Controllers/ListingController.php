@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller as Controller;
 //use Illuminate\Routing\Controller;
 use \Auth;
 use App\Listing;
+use App\User;
+use Mail;
 use DB;
 
 
@@ -64,10 +66,16 @@ class ListingController extends Controller
         return view('listing.index')->with('booklistings', $booklistings);
     }
 
-    public function showlisting(Listing $listing)
+    public function showlisting($id)
     {
+        $listing = collect(DB::select("SELECT * FROM listings WHERE id = ?", [$id]))->first();
+        $user = $listing->userId;
+        $rating = collect(DB::select("SELECT avg(rating) as avgrating FROM reviews WHERE revieweeId = ?", [$user]))->first();
 
-        return view('listing.listing')->with('listing', $listing);
+        if(isset($rating->avgrating))
+            $rating->avgrating = ceil($rating->avgrating);
+
+        return view('listing.listing')->with('listing', $listing)->with('rating', $rating);
 
     }
     public function store(Request $request)
@@ -149,6 +157,17 @@ class ListingController extends Controller
             $del->del = 1;
             $del->save();
 
+            //Send an email to the user to fill out rating
+            $sale = collect(DB::select('select buyerId from sales where listingId = ?', [$id]))->first();
+            $buyer = User::find($sale->buyerId);
+
+            Mail::send('mail.rating', ['listing' => $del], function ($m) use ($del, $buyer) {
+                $m->to($buyer->email, $buyer->name)->subject('Rate your Experience for Buying ' . $del->name);
+            });
+
+
+
+
             return redirect()->to('/mylistings')->with('delete', 'delete');
         } else {
             return redirect()->to('/');
@@ -176,6 +195,22 @@ class ListingController extends Controller
         } else {
             return redirect()->to('/');
         }
+    }
+
+    public function rating($id) {
+        $listing = Listing::find($id);
+        $sale = collect(DB::select('select buyerId from sales where listingId = ?', [$id]))->first();
+        $buyer = $sale->buyerId;
+        return view('listing.rating')->with('listing', $listing)->with('buyer', $buyer);
+    }
+
+    public function addrating($id, Request $request) {
+        $listing = Listing::find($id);
+        $seller = $listing->userId;
+        $rating = $request->input('rate');
+        $buyer = Auth::User()->id;
+        DB::insert("INSERT INTO reviews (reviewerId, revieweeId, rating, review) VALUES (?, ?, ?, ?)", [$buyer, $seller, $rating, "Review"]);
+        return redirect()->to('/');
     }
 
 }

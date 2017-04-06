@@ -55,3 +55,7 @@ Route::post('store','ListingController@store');
 //searching
 Route::get('/search', 'SearchController@search');
 
+//rating
+Route::get('/rating/{id}', 'ListingController@rating');
+Route::post('/rating/{id}/addrating', 'ListingController@addrating');
+

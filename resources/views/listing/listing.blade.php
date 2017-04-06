@@ -13,6 +13,13 @@
                             @endif
                             <h3 class="pull-right" style="color:#5bc6c5">${{ $listing->price }}</h3>
                             <h3><a href="#" style="color:#5bc6c5">{{ $listing->name}}</a></h3>
+                            @if(isset($rating->avgrating))
+                            <h3>Seller Rating:
+                                @for($i = 0; $i < $rating->avgrating; $i++)
+                                    <i class = "fa fa-star"></i>
+                                @endfor
+                            </h3>
+                            @endif
                             <p>
                                 <strong>Edition: {{$listing->edition}}</strong>
                             <h4>Condition: {{ $listing->condition}}</h4>
