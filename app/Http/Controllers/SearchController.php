@@ -33,9 +33,9 @@ class SearchController extends Controller
        
 
         if ($sortby && $order) {
-            $booklistings = Listing::where('name', 'like', '%' . $search . '%')->orWhere('condition', 'like', '%' . strtolower($search) . '%')->orWhere('edition', 'like', '%' . strtolower($search) . '%')->orderBy($sortby, $order)->get();
+            $booklistings = Listing::where('name', 'like', '%' . $search . '%')->orWhere('description', 'like', '%' . strtolower($search) . '%')->orWhere('edition', 'like', '%' . strtolower($search) . '%')->orWhere('courseInfo', 'like', '%' . strtolower($search) . '%')->orderBy($sortby, $order)->get();
         } else {
-            $booklistings = Listing::where('name', 'like', '%' . $search . '%')->orWhere('condition', 'like', '%' . strtolower($search) . '%')->orWhere('edition', 'like', '%' . strtolower($search) . '%')->get();
+            $booklistings = Listing::where('name', 'like', '%' . $search . '%')->orWhere('description', 'like', '%' . strtolower($search) . '%')->orWhere('edition', 'like', '%' . strtolower($search) . '%')->orWhere('courseInfo', 'like', '%' . strtolower($search) . '%')->get();
         }
 
         //$booklistings =  DB::select("select * from listings where isbn like '%$search%' or lower(name) like lower('%$search%') or lower(description) like lower('%$search%') or lower(edition) like lower('%$search%') ");

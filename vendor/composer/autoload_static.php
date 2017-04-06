@@ -18,8 +18,8 @@ class ComposerStaticInitae9910b5aaf4e04613a65257a1f71d7d
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
-        '752af1c2bdb339e8474c3c31b22b7d54' => __DIR__ . '/..' . '/illuminate/html/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        '752af1c2bdb339e8474c3c31b22b7d54' => __DIR__ . '/..' . '/illuminate/html/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -371,7 +371,10 @@ class ComposerStaticInitae9910b5aaf4e04613a65257a1f71d7d
         'AddBannedToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_22_210021_add_banned_to_users_table.php',
         'AddDelListing' => __DIR__ . '/../..' . '/database/migrations/2017_04_05_055807_add_del_listing.php',
         'AddReportCountToListings' => __DIR__ . '/../..' . '/database/migrations/2017_03_29_034814_add_report_count_to_listings.php',
+<<<<<<< HEAD
         'AddSoldColumnToListingsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_06_043203_AddSoldColumnToListingsTable.php',
+=======
+>>>>>>> 3d02b4b30c41bbb3a1e87ded0172e4970b3d2aab
         'CategoriesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CategoriesTableSeeder.php',
         'ChangeSalesTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_23_100406_change_sales_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_05_222556_create_categories_table.php',
