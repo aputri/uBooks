@@ -2,6 +2,9 @@
 
 @section('content')
     <div class = "container">
+        @if(session('deleteUser'))
+            <div class = "alert alert-success">User has successfully been deleted</div>
+        @endif
         <div class = "row">
             <div class = "col-md-12 panel">
                 <table class = "table-striped col-md-12">
@@ -46,6 +49,43 @@
                                     <input type = "submit" value = "Change Password">
                                 </form>
                             </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class = "container">
+        @if(session('deleteListing'))
+            <div class = "alert alert-success">Post has successfully been deleted</div>
+        @endif
+        <div class = "row">
+            <div class = "col-md-12 panel">
+                <table class = "table-striped col-md-12">
+                    <tr>
+                        <th> ID </th>
+                        <th> Times Reported </th>
+                        <th> Reason </th>
+                        <th> Delete </th>
+                        <th> View Post</th>
+                    </tr>
+                    @foreach ($reports as $report)
+                        <tr>
+                            <td> {{ $report->listingId }}  </td>
+                            <td> {{ $report->reported }}  </td>
+                            <td> {{ $report->reason }}  </td>
+                            <td>
+                                <a href="{{URL::to('/administration/deletePost/'. $report->listingId ) }}">
+                                   Yes
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{URL::to('./listing/' . $report->listingId)}}">
+                                    View
+                                </a>
+                            </td>
+
                         </tr>
                     @endforeach
                 </table>

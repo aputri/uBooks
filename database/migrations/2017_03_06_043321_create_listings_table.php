@@ -20,7 +20,7 @@ class CreateListingsTable extends Migration
             $table->foreign('userId')->references('id')->on('users');
 
             $table->integer('catId')->unsigned();
-            $table->foreign('catId')->references('id')->on('categorys');
+            $table->foreign('catId')->references('id')->on('categories');
             $table->string('imageLink')->nullable();
             $table->bigInteger('isbn');
             $table->string('name');
@@ -29,6 +29,8 @@ class CreateListingsTable extends Migration
             $table->text('description');
             $table->text('edition');
             $table->decimal('retailPrice', 8,2);
+            $table->string('imagePath')->nullable();
+            $table->string('courseInfo')->nullable();
             $table->timestamps();
         });
     }

@@ -9,6 +9,26 @@
   margin-bottom:0;
 }
 
+#banner {
+  width: 100%;
+}
+
+.top10 {
+  margin-top: 10px;
+}
+
+.bottom10 {
+  margin-bottom: 10px;
+}
+
+.bottom20 {
+  margin-bottom: 20px;
+}
+
+.bottom30 {
+  margin-bottom: 30px;
+}
+
 @media (max-width:767px) {
   .navigation-clean-search {
     padding-top:0;

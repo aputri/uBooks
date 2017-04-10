@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategorysTable extends Migration
+class AddDelListing extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateCategorysTable extends Migration
      */
     public function up()
     {
-        Schema::create('categorys', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('subject');
-            //$table->integer('courseNum');
-            $table->timestamps();
+        Schema::table('listings', function (Blueprint $table) {
+            $table->integer('del')->default(0);
         });
     }
 
@@ -28,6 +25,6 @@ class CreateCategorysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorys');
+        //
     }
 }

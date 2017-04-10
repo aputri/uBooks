@@ -16,6 +16,8 @@ class VerifyCsrfToken extends BaseVerifier
         '/profile/changePass',
         '/administration/changePass/*',
         '/listing/*',
-        '/messages/*'
+        '/messages/*',
+        '/edit/*',
+        '/rating/*'
     ];
 }
