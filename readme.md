@@ -4,7 +4,21 @@ This project aims to provide UBC Okanagan students with a simple and efficient p
 
 ## Installing
 
-Simply download the client library and run the source code on localhost.
+Get composer https://getcomposer.org/.
+
+Clone the git into your web server.
+
+Run the command ```composer install``` on the current directory.
+
+Create a database called ```ubooks``` on your mysql server.
+
+Run the command ```copy .env.example .env``` or ```cp .env.example .env``` on mac.
+
+Run the command ```php artisan key:generate```.
+
+Run the command ```php artisan config:clear```.
+
+Run the command ```php artisan migrate```.
 
 ## Built With
 
